@@ -10,7 +10,6 @@ const useThrottle = (fun: Function, delay: number, deps: any[]) => {
     return useCallback((...args) => {
         if (!timer.current) {
             timer.current = setTimeout(() => {
-                console.log(timer.current)
                 fun.apply(fun, args)
                 timer.current && clearTimeout(timer.current)
                 timer.current = null;

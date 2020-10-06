@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.row_center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.column_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row_between {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.column_between {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.v_line {
+    background: $line-color;
+    width: 1;
+    height: 100%;
+}
+
+.h_line {
+    background: $line-color;
+    height: 1;
+    width: 100%;
+}
+
+@for $i from 1 to 50 {
+    .mT-#{$i} {
+        margin-top: 1px*$i;
+    }
+
+    .mB-#{$i} {
+        margin-bottom: 1px*$i;
+    }
+
+    .mR-#{$i} {
+        margin-right: 1px*$i;
+    }
+
+    .mL-#{$i} {
+        margin-left: 1px*$i;
+    }
+
+    .mV-#{$i} {
+        margin: 1px*$i 0px;
+    }
+
+    .mH-#{$i} {
+        margin: 0px 1px*$i;
+    }
+
+    .pV-#{$i} {
+        padding: 1px*$i 0px;
+    }
+
+    .pH-#{$i} {
+        padding: 0px 1px*$i;
+    }
+
+    .pR-#{$i} {
+        padding-right: 1px*$i;
+    }
+
+    .pT-#{$i} {
+        padding-top: 1px*$i;
+    }
+
+    .pB-#{$i} {
+        padding-bottom: 1px*$i;
+    }
+
+    .pL-#{$i} {
+        padding-left: 1px*$i;
+    }
+
+}
+
+.tabbar {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    left: 0;
+    width: 100vw;
+    height: calc(90px + constant(safe-area-inset-bottom));
+    height: calc(90px + env(safe-area-inset-bottom));
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
+}
+
+.tabbar_page {
+    padding-bottom: calc(90px + constant(safe-area-inset-bottom));
+    padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    box-sizing: border-box;
+}
