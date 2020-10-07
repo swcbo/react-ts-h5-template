@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Redirect, Route } from "react-router";
+import { Redirect, Route, Switch } from "react-router-dom";
 import routes from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
 import { MyRoute } from "../typings/router";
@@ -11,10 +11,10 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
             if (other.title)
                 document.title = other.title
             return Component && <Component tabBars={tabBars} {...other}>
-                <AnimatedSwitch >
+                <Switch>
                     {(routes || tabBars)?.map(v => generateRoute(v))}
                     <Redirect to={redirect || ((routes || tabBars)!![0].path as string)} exact from={realKey}></Redirect>
-                </AnimatedSwitch>
+                </Switch>
             </Component>
         }}>
         </Route>
@@ -34,7 +34,7 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 }
 
 const RouteRender: React.FC = () => {
-    return <Suspense fallback={<>loading</>}>
+    return <Suspense fallback={<></>}>
         <AnimatedSwitch>
             {routes.map(v => generateRoute(v))}
         </AnimatedSwitch>

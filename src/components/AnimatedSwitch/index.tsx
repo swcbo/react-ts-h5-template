@@ -1,36 +1,38 @@
+import { Location } from "history";
 import React, { ReactNode } from "react";
 import { Switch, useHistory, useLocation } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import routers from "../../routers";
+import { MyRoute } from "../../typings/router";
 import "./index.scss";
-/**
- *
- * @param {way} props
- * @description 用于页面路由跳转 通过way指定跳转方式，指定way=refade
- * 则反向
- *
- */
-
-const ANIMATION_MAP = {
-    PUSH: 'forward',
-    POP: 'back',
-    REPLACE: "forward",
+export interface AnimatedSwitchProps {
+    children?: ReactNode,
+    tabBars?: MyRoute.RouteChild[] | undefined
 }
+const DEFAULT_SCENE_CONFIG = {
+    enter: 'from-right',
+    exit: 'to-exit'
+};
 
-const AnimatedSwitch = (props: { children?: ReactNode }) => {
-    const { children } = props;
+const getSceneConfig = (location: Location) => {
+    const matchedRoute = routers.find(({ path }) => new RegExp(`^${path}$`).test(location.pathname));
+    return (matchedRoute && matchedRoute.sceneConfig) || DEFAULT_SCENE_CONFIG;
+};
+let oldLocation: Location | null = null;
+const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children,...other }) => {
     const history = useHistory()
     const location = useLocation()
+    let classNames = '';
+    if (history.action === 'PUSH') {
+        classNames = 'forward-' + getSceneConfig(location).enter;
+    } else if (history.action === 'POP' && oldLocation) {
+        classNames = 'back-' + getSceneConfig(oldLocation).exit;
+    }
+    oldLocation = location;
+    console.log(other)
     return (<TransitionGroup
-        className={'router-wrapper'}
-        childFactory={child => React.cloneElement(
-            child,
-            { classNames: ANIMATION_MAP[history.action] }
-        )}
-    >
-        <CSSTransition
-            timeout={300}
-            key={location.pathname}
-        >
+        childFactory={child => React.cloneElement(child, { classNames })}>
+        <CSSTransition timeout={300} key={location.pathname}>
             <Switch location={location}>{children}</Switch>
         </CSSTransition>
     </TransitionGroup>

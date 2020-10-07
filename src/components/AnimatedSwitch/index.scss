@@ -1,47 +1,106 @@
-/* src/App5/index.css */
+.router-wrapper {
+  overflow: hidden;
+}
 
-/* 路由前进时的入场/离场动画 */
-.forward-enter {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  
-  .forward-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 500ms;
-  }
-  
-  .forward-exit {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .forward-exit-active {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 500ms;
-  }
-  
-  /* 路由后退时的入场/离场动画 */
-  .back-enter {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  
-  .back-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 500ms;
-  }
-  
-  .back-exit {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .back-exit-active {
-    opacity: 0;
-    transform: translate(100%);
-    transition: all 500ms;
-  }
+/**
+ * 右侧淡入，右侧淡出
+ */
+.forward-from-right-enter {
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.forward-from-right-enter-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 300ms;
+}
+
+.forward-from-right-exit {
+  z-index: 1;
+  opacity: 1;
+}
+
+.forward-from-right-exit-active {
+  z-index: 1;
+  opacity: .3;
+  transition: all 300ms;
+}
+
+.back-to-right-enter {
+  z-index: 1;
+  opacity: .3;
+}
+
+.back-to-right-enter-active {
+  z-index: 1;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 300ms;
+}
+
+.back-to-right-exit {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.back-to-right-exit-active {
+  z-index: 2;
+  opacity: 0;
+  transform: translate(100%);
+  transition: all 300ms;
+}
+
+/**
+ * 下方淡入，下方淡出
+ */
+.forward-from-bottom-enter {
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.forward-from-bottom-enter-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 300ms;
+}
+
+.forward-from-bottom-exit {
+  z-index: 1;
+  opacity: 1;
+}
+
+.forward-from-bottom-exit-active {
+  z-index: 1;
+  opacity: .3;
+  transition: all 300ms;
+}
+
+.back-to-bottom-enter {
+  z-index: 1;
+  opacity: .3;
+}
+
+.back-to-bottom-enter-active {
+  z-index: 1;
+  opacity: 1;
+  transition: all 300ms;
+}
+
+.back-to-bottom-exit {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-bottom-exit-active {
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 300ms;
+}

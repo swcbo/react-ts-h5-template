@@ -7,8 +7,12 @@ export namespace MyRoute {
         tabBars?: RouteChild[]
         redirect?: string
         isTabIndex?: boolean
+        sceneConfig?: {
+            enter: string
+            exit: string
+        },
         title?: string
-        path?: string | string[];
+        path: string | string[];
         component?: ComponentClass<any> | FunctionComponent<any>
     }
 
