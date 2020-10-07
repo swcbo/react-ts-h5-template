@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router";
+import { Redirect, Route } from "react-router";
 import routes from ".";
+import AnimatedSwitch from "../components/AnimatedSwitch";
 import { MyRoute } from "../typings/router";
 
 const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: MyRoute.RouteConfig) => {
@@ -9,11 +10,11 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
         return <Route {...other} path={path} key={realKey} render={() => {
             if (other.title)
                 document.title = other.title
-            return Component && <Component tabBars={tabBars}>
-                <Switch >
+            return Component && <Component tabBars={tabBars} {...other}>
+                <AnimatedSwitch >
                     {(routes || tabBars)?.map(v => generateRoute(v))}
                     <Redirect to={redirect || ((routes || tabBars)!![0].path as string)} exact from={realKey}></Redirect>
-                </Switch>
+                </AnimatedSwitch>
             </Component>
         }}>
         </Route>
@@ -21,22 +22,22 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 
     }
     if (redirect) {
-        return <Redirect to={redirect} key={`redirect_${redirect}`} exact from={realKey}/>
+        return <Redirect to={redirect} key={`redirect_${redirect}`} exact from={realKey} />
     }
     return <Route {...other} path={path} key={realKey} render={() => {
         if (other.title)
             document.title = other.title
-        return Component && <Component tabBars={tabBars}>
+        return Component && <Component tabBars={tabBars} {...other}>
         </Component>
     }}>
     </Route>
 }
 
 const RouteRender: React.FC = () => {
-    return <Suspense fallback={<></>}>
-        <Switch>
+    return <Suspense fallback={<>loading</>}>
+        <AnimatedSwitch>
             {routes.map(v => generateRoute(v))}
-        </Switch>
+        </AnimatedSwitch>
     </Suspense>
 }
 export default RouteRender;

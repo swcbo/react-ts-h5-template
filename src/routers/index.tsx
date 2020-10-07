@@ -1,12 +1,12 @@
 import { lazy } from 'react';
 import { MyRoute } from '../typings/router';
-const Search = lazy(() => import('../pages/Search'))
-const List = lazy(() => import('../pages/List'))
-const Home = lazy(() => import('../pages/Home'))
-const Detail = lazy(() => import('../pages/Detail'))
-const Index = lazy(() => import('../pages/Index'))
-const Other = lazy(() => import('../pages/Other'))
-const NoFound = lazy(() => import('../components/NoFound'))
+const Search = lazy(() => import('../pages/Search' /* webpackChunkName: "Search" */))
+const List = lazy(() => import('../pages/List' /* webpackChunkName: `List` */))
+const Home = lazy(() => import('../pages/Home' /* webpackChunkName: "Home" */))
+const Detail = lazy(() => import('../pages/Detail' /* webpackChunkName: "Detail" */))
+const Index = lazy(() => import('../pages/Index' /* webpackChunkName: "Index" */))
+const Other = lazy(() => import('../pages/Other' /* webpackChunkName: "Other" */))
+const NoFound = lazy(() => import('../components/NoFound' /* webpackChunkName: "NoFound" */))
 const commonRoutes: MyRoute.RouteConfig[] = [
     {
         path: '/nofound',
@@ -65,4 +65,4 @@ const routes: MyRoute.RouteConfig[] = [
 
 ];
 
-export default [...routes,...commonRoutes];
+export default [...routes, ...commonRoutes];

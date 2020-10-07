@@ -6,7 +6,7 @@ import RouteRender from './routers/RouteRender';
 function App() {
   return (
     <Router history={createBrowserHistory()}>
-        <RouteRender/>
+      <RouteRender />
     </Router>
   );
 }

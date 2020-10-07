@@ -12,4 +12,5 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
     box-sizing: border-box;
+    z-index: 100;
 }
