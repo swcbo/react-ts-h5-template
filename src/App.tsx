@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   BrowserRouter
 } from 'react-router-dom';
 import './App.css';
+import TabBarView from './layout/TabBarView';
 import RouteRender from './routers/RouteRender';
 function App() {
   return (
     <BrowserRouter>
       <RouteRender />
+      <TabBarView />
     </BrowserRouter>
   );
 }

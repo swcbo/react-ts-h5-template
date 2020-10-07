@@ -1,0 +1,27 @@
+.am-tab-bar-bar .am-tab-bar-tab-image {
+    object-fit: contain;
+}
+
+.tabbar {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    left: 0;
+    width: 100vw;
+    height: calc(90px + constant(safe-area-inset-bottom));
+    height: calc(90px + env(safe-area-inset-bottom));
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
+    z-index: 100;
+    transition: 0.5s all;
+}
+
+.in_page {
+    transform: translate3d(0, 0, 0);
+}
+
+.out_page {
+    transform: translate3d(0, 100%, 0);
+
+}

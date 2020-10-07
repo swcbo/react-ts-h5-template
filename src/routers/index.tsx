@@ -26,69 +26,45 @@ const routes: MyRoute.RouteConfig[] = [
         path: ['/home'],
         component: Index,
         redirect: '/home/index',
-        sceneConfig: {
-            enter: 'from-right',
-            exit: 'to-right'
-        },
         tabBars: [
             {
                 path: "/home/index",
                 component: Home,
                 selectedIcon: require('@images/home_tab_select.png'),
                 icon: require('@images/home_tab.png'),
-                title: '首页', sceneConfig: {
-                    enter: 'from-right',
-                    exit: 'to-right'
-                },
+                title: '首页'
             },
             {
                 path: "/home/detail",
                 component: Detail,
                 selectedIcon: require('@images/detail_tab_select.png'),
                 icon: require('@images/detail_tab.png'),
-                title: '详情', sceneConfig: {
-                    enter: 'from-right',
-                    exit: 'to-right'
-                },
+                title: '详情'
             },
             {
                 path: "/home/list",
                 component: List,
                 selectedIcon: require('@images/list_tab_select.png'),
                 icon: require('@images/list_tab.png'),
-                title: '列表', sceneConfig: {
-                    enter: 'from-right',
-                    exit: 'to-right'
-                },
+                title: '列表'
             },
             {
                 path: "/home/search",
                 component: Search,
                 selectedIcon: require('@images/search_tab_select.png'),
                 icon: require('@images/search_tab.png'),
-                title: '搜索', sceneConfig: {
-                    enter: 'from-bottom',
-                    exit: 'to-bottom'
-                },
+                title: '搜索'
             }
         ]
     },
     {
         path: "/other",
         component: Other,
-        sceneConfig: {
-            enter: 'from-right',
-            exit: 'to-right'
-        },
     },
 
     {
         path: "/list",
         component: List,
-        sceneConfig: {
-            enter: 'from-right',
-            exit: 'to-right'
-        },
     },
 
 

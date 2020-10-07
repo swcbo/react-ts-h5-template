@@ -35,7 +35,7 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 
 const RouteRender: React.FC = () => {
     return <Suspense fallback={<></>}>
-        <AnimatedSwitch>
+        <AnimatedSwitch type='right'>
             {routes.map(v => generateRoute(v))}
         </AnimatedSwitch>
     </Suspense>
