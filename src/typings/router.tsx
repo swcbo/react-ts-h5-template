@@ -3,10 +3,11 @@ import { RouteProps } from "react-router";
 
 export namespace MyRoute {
     export interface RouteConfig extends RouteProps {
-        routes?: RouteChild[] // 子列表
+        routes?: RouteConfig[] // 子列表
+        tabBars?: RouteChild[]
         redirect?: string
         title?: string
-        path: string
+        path?: string | string[];
         component?: ComponentClass<any> | FunctionComponent<any>
     }
 

@@ -4,10 +4,11 @@ import { useHistory } from 'react-router';
 import { MyRoute } from '../../typings/router';
 import './index.scss';
 const Index: React.FC<{
-    routes: MyRoute.RouteChild[]
-}> = ({ children, routes }) => {
-    const [state, setstate] = useState(0)
+    tabBars: MyRoute.RouteChild[]
+    children?: React.ReactNode
+}> = ({ children, tabBars }) => {
     const history = useHistory()
+    const [state, setstate] = useState(tabBars.findIndex(v => v.path === history.location.pathname))
     const OnTabClick = useCallback(
         (index, path) => {
             setstate(index)
@@ -19,7 +20,7 @@ const Index: React.FC<{
         unselectedTintColor="#888888"
         tintColor="#023059"
         barTintColor="white">
-        {routes.map(({ title, path, icon, selectedIcon }, index) => (
+        {tabBars.map(({ title, path, icon, selectedIcon }, index) => (
             <TabBar.Item
                 key={title}
                 selected={state === index}
@@ -29,7 +30,7 @@ const Index: React.FC<{
                 selectedIcon={{ uri: selectedIcon }}>
 
             </TabBar.Item>))}
-    </TabBar>, [state, routes, OnTabClick])
+    </TabBar>, [state, tabBars, OnTabClick])
     return <div>
         {children}
         <div className="tabbar">
