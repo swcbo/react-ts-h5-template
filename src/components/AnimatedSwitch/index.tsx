@@ -4,6 +4,7 @@ import { Switch, useHistory, useLocation } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import routers from "../../routers";
 import { MyRoute } from "../../typings/router";
+import { treeToList } from "../../utils";
 import "./index.scss";
 export interface AnimatedSwitchProps {
     children?: ReactNode,
@@ -15,11 +16,12 @@ const DEFAULT_SCENE_CONFIG = {
 };
 
 const getSceneConfig = (location: Location) => {
-    const matchedRoute = routers.find(({ path }) => new RegExp(`^${path}$`).test(location.pathname));
+    const list = treeToList(routers,['tabBars','route'])
+    const matchedRoute = list.find(({ path }) => new RegExp(`^${path}$`).test(location.pathname));
     return (matchedRoute && matchedRoute.sceneConfig) || DEFAULT_SCENE_CONFIG;
 };
 let oldLocation: Location | null = null;
-const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children,...other }) => {
+const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children }) => {
     const history = useHistory()
     const location = useLocation()
     let classNames = '';
@@ -29,7 +31,6 @@ const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children,...other }) =>
         classNames = 'back-' + getSceneConfig(oldLocation).exit;
     }
     oldLocation = location;
-    console.log(other)
     return (<TransitionGroup
         childFactory={child => React.cloneElement(child, { classNames })}>
         <CSSTransition timeout={300} key={location.pathname}>
