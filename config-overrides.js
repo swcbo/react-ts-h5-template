@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-06 16:15:30
+ * @LastEditTime: 2020-10-07 13:30:18
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const { override, fixBabelImports, addPostcssPlugins, addWebpackAlias } = require('customize-cra');
@@ -29,6 +29,13 @@ const alter_config = () => (config) => {
 			})
 		];
 	}
+	const loaders = config.module.rules.find((rule) => Array.isArray(rule.oneOf)).oneOf;
+	loaders[5].use.push({
+		loader: 'sass-resources-loader',
+		options: {
+			resources: path.resolve(__dirname, 'src/assets/css/variables.scss')
+		}
+	});
 	return config;
 };
 module.exports = override(

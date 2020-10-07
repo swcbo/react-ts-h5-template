@@ -6,11 +6,24 @@ const Home = lazy(() => import('../pages/Home'))
 const Detail = lazy(() => import('../pages/Detail'))
 const Index = lazy(() => import('../pages/Index'))
 const Other = lazy(() => import('../pages/Other'))
-const NoFound = lazy(() => import('../pages/NoFound'))
-
+const NoFound = lazy(() => import('../components/NoFound'))
+const commonRoutes: MyRoute.RouteConfig[] = [
+    {
+        path: '/nofound',
+        component: NoFound,
+    },
+    {
+        path: '/',
+        redirect: '/home/index'
+    },
+    {
+        path: '/*',
+        redirect: '/nofound',
+    }
+]
 const routes: MyRoute.RouteConfig[] = [
     {
-        path: '/home',
+        path: ['/home'],
         component: Index,
         redirect: '/home/index',
         tabBars: [
@@ -48,13 +61,8 @@ const routes: MyRoute.RouteConfig[] = [
         path: "/other",
         component: Other,
     },
-    {
-        path: '/nofound',
-        component: NoFound,
-    },
-    {
-        redirect: '/nofound',
-    }
+
+
 ];
 
-export default routes.concat([]);
+export default [...routes,...commonRoutes];

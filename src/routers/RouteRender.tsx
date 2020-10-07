@@ -12,7 +12,7 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
             return Component && <Component tabBars={tabBars}>
                 <Switch >
                     {(routes || tabBars)?.map(v => generateRoute(v))}
-                    <Redirect to={redirect || ((routes || tabBars)!![0].path as string)}></Redirect>
+                    <Redirect to={redirect || ((routes || tabBars)!![0].path as string)} exact from={realKey}></Redirect>
                 </Switch>
             </Component>
         }}>
@@ -21,7 +21,7 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 
     }
     if (redirect) {
-        return <Redirect to={redirect} key={`redirect_${redirect}`} exact />
+        return <Redirect to={redirect} key={`redirect_${redirect}`} exact from={realKey}/>
     }
     return <Route {...other} path={path} key={realKey} render={() => {
         if (other.title)
