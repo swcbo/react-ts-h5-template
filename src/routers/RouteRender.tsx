@@ -5,6 +5,7 @@ import routes, { TabBarList } from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
 import { MyRoute } from "../typings/router";
 import { Location } from "history"
+import LoadingView from "../components/LoadingView";
 
 const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: MyRoute.RouteConfig) => {
     const realKey = Array.isArray(path) ? path[0] : path
@@ -54,7 +55,7 @@ const RouteRender: React.FC = () => {
     oldLocation.current = location;
     return <AnimatedSwitch classNames={classNames} primaryKey={location.pathname}>
         <div className="fullPage">
-            <Suspense fallback={<></>}>
+            <Suspense fallback={<LoadingView/>}>
                 <Switch location={location} > {routes.map(v => generateRoute(v))}</Switch>
             </Suspense>
         </div>
