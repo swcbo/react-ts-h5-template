@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  BrowserRouter
+  BrowserRouter as Router
 } from 'react-router-dom';
 import './App.css';
 import TabBarView from './layout/TabBarView';
 import RouteRender from './routers/RouteRender';
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <RouteRender />
       <TabBarView />
-    </BrowserRouter>
+    </Router>
   );
 }
 

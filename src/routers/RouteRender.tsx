@@ -1,11 +1,9 @@
 import React, { Suspense, useRef } from "react";
-import { useHistory } from "react-router";
-import { Redirect, Route, Switch, useLocation } from "react-router-dom";
+import { Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import routes, { TabBarList } from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
-import { MyRoute } from "../typings/router";
-import { Location } from "history"
 import LoadingView from "../components/LoadingView";
+import { MyRoute } from "../typings/router";
 
 const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: MyRoute.RouteConfig) => {
     const realKey = Array.isArray(path) ? path[0] : path
@@ -38,24 +36,29 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 
 const RouteRender: React.FC = () => {
     const history = useHistory()
-    const oldLocation = useRef<Location | null>(null)
+    const oldLocation = useRef<string>('')
     const location = useLocation()
+    // check normal route
+    let routeSceneMode = routes.find(v => v.path === location.pathname)?.sceneMode
     let classNames = '';
     if (history.action === 'PUSH') {
-        classNames = `forward-from-right`;
+        classNames = `forward-from-${routeSceneMode ?? 'right'}`;
     } else if (history.action === 'POP' && oldLocation.current) {
-        classNames = `back-to-right`;
+        routeSceneMode = routes.find(v => v.path === oldLocation.current)?.sceneMode
+        classNames = `back-to-${routeSceneMode ?? 'right'}`;
     }
-    // tabBar 判断
+    // check tabBar route
     const tabIndex = TabBarList.findIndex(v => v.path === location.pathname)
     if (tabIndex !== -1) {
-        const oldIndex = TabBarList.findIndex(v => v.path === oldLocation.current?.pathname);
-        if (oldIndex !== -1) (classNames = tabIndex > oldIndex ? `forward-from-${TabBarList[tabIndex].sceneMode}` : `back-to-${TabBarList[tabIndex].sceneMode}`)
+        const oldIndex = TabBarList.findIndex(v => v.path === oldLocation.current);
+        if (oldIndex !== -1) {
+            (classNames = tabIndex > oldIndex ? `forward-from-${TabBarList[tabIndex].sceneMode}` : `back-to-${TabBarList[tabIndex].sceneMode}`)
+        }
     }
-    oldLocation.current = location;
+    oldLocation.current = location.pathname;
     return <AnimatedSwitch classNames={classNames} primaryKey={location.pathname}>
         <div className="fullPage">
-            <Suspense fallback={<LoadingView/>}>
+            <Suspense fallback={<LoadingView />}>
                 <Switch location={location} > {routes.map(v => generateRoute(v))}</Switch>
             </Suspense>
         </div>

@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-07 20:42:43
+ * @LastEditTime: 2020-10-08 21:49:30
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+  <title><%= htmlWebpackPlugin.options.title%></title>
   <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
   <script>
     if ('addEventListener' in document) {
@@ -43,6 +43,12 @@
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
     }
   </script>
+   <!-- 使用cdn的css文件 -->
+   <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
+    <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style"/>
+    <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet"/>
+   <% } %>
+  
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -57,5 +63,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+      <!-- 使用cdn的js文件 -->
+      <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+        <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+      <% } %>
   </body>
 </html>

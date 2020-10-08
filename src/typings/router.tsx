@@ -1,5 +1,5 @@
 import { ComponentClass, FunctionComponent } from "react";
-import { RouteProps } from "react-router";
+import { RouteProps } from "react-router-dom";
 import { MySwitch } from "./switch";
 
 export namespace MyRoute {

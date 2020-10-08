@@ -128,4 +128,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
+    > div:first-child{
+        height: 100%;
+        width: 100%;
+    }
 }

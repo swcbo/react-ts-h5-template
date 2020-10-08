@@ -1,0 +1,1 @@
+(this["webpackJsonpreact-ts-h5-template"]=this["webpackJsonpreact-ts-h5-template"]||[]).push([[1],{151:function(e,t,a){"use strict";a.r(t);var n=a(0),s=a.n(n),c=a(62);t.default=s.a.memo((function(){return s.a.createElement("div",{className:"tabbar_page"},"home",s.a.createElement(c.a,null))}))}}]);

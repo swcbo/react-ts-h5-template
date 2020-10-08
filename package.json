@@ -5,14 +5,11 @@
 	"dependencies": {
 		"antd-mobile": "^2.3.4",
 		"axios": "^0.20.0",
-		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-loadable": "^5.5.0",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "^3.4.3",
-		"react-transition-group": "^4.4.1",
-		"typescript": "~3.7.2"
+		"react-transition-group": "^4.4.1"
 	},
 	"devDependencies": {
 		"@testing-library/jest-dom": "^4.2.4",
@@ -22,7 +19,6 @@
 		"@types/node": "^12.0.0",
 		"@types/react": "^16.9.0",
 		"@types/react-dom": "^16.9.0",
-		"@types/react-loadable": "^5.5.3",
 		"@types/react-router-dom": "^5.1.6",
 		"@types/react-transition-group": "^4.4.0",
 		"babel-plugin-import": "^1.13.0",
@@ -31,7 +27,9 @@
 		"postcss-px-to-viewport": "^1.1.1",
 		"react-app-rewired": "^2.1.6",
 		"sass-resources-loader": "^2.1.1",
-		"webpackbar": "^4.0.0"
+		"webpackbar": "^4.0.0",
+		"node-sass": "^4.14.1",
+		"typescript": "~3.7.2"
 	},
 	"scripts": {
 		"dev": "dotenv -e .env.dev react-app-rewired start",

@@ -1,0 +1,1 @@
+.tabbar_page{height:100vh;width:100vw;position:absolute;left:0;top:0;padding-bottom:calc(12vw + env(safe-area-inset-bottom));box-sizing:border-box}.tabbar_page>div:first-child{min-height:100%;width:100%}
