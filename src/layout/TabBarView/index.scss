@@ -19,9 +19,11 @@
 
 .in_page {
     transform: translate3d(0, 0, 0);
+    opacity: 1;
 }
 
 .out_page {
     transform: translate3d(0, 100%, 0);
+    opacity: 0;
 
 }

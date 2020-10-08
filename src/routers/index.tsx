@@ -69,5 +69,4 @@ const routes: MyRoute.RouteConfig[] = [
 
 
 ];
-
 export default [...routes, ...commonRoutes];

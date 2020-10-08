@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
@@ -34,10 +34,8 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 }
 
 const RouteRender: React.FC = () => {
-    return <Suspense fallback={<></>}>
-        <AnimatedSwitch type='right'>
+    return <AnimatedSwitch type='right'>
             {routes.map(v => generateRoute(v))}
         </AnimatedSwitch>
-    </Suspense>
 }
 export default RouteRender;

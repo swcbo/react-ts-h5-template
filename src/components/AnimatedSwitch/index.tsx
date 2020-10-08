@@ -1,5 +1,5 @@
 import { Location } from "history";
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 import { Switch, useHistory, useLocation } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./index.scss";
@@ -20,9 +20,13 @@ const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type }) => {
     }
     oldLocation = location;
     return (<TransitionGroup
-        childFactory={child => React.cloneElement(child, { classNames })}>
-        <CSSTransition timeout={500} key={location.pathname}>
-            <Switch location={location} >{children}</Switch>
+        childFactory={child => React.cloneElement(child, { classNames })}
+    >
+        <CSSTransition key={location.pathname}
+            timeout={500} appear unmountOnExit>
+            <Suspense fallback={<></>}>
+                <Switch location={location} >{children}</Switch>
+            </Suspense>
         </CSSTransition>
     </TransitionGroup>
     );
