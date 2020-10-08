@@ -24,9 +24,11 @@ const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type }) => {
     >
         <CSSTransition key={location.pathname}
             timeout={500} appear unmountOnExit>
-            <Suspense fallback={<></>}>
-                <Switch location={location} >{children}</Switch>
-            </Suspense>
+            <div>
+                <Suspense fallback={<></>}>
+                    <Switch location={location} >{children}</Switch>
+                </Suspense>
+            </div>
         </CSSTransition>
     </TransitionGroup>
     );
