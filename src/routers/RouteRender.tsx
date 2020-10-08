@@ -34,8 +34,8 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
 }
 
 const RouteRender: React.FC = () => {
-    return <AnimatedSwitch type='right'>
-            {routes.map(v => generateRoute(v))}
-        </AnimatedSwitch>
+    return <AnimatedSwitch>
+        {routes.map(v => generateRoute(v))}
+    </AnimatedSwitch>
 }
 export default RouteRender;

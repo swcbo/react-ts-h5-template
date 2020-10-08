@@ -1,11 +1,11 @@
 import { TabBar } from 'antd-mobile';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import routers from '../../routers';
 import './index.scss';
 const TabBarView: React.FC = () => {
     const history = useHistory()
-    useLocation()
+    const location = useLocation()
     const tabBars = useRef(routers.find(v => v.tabBars)?.tabBars)
     const [state, setstate] = useState(tabBars.current?.findIndex(v => v.path === history.location.pathname))
     const OnTabClick = useCallback(
@@ -15,6 +15,9 @@ const TabBarView: React.FC = () => {
         },
         [history],
     )
+    useEffect(() => {
+        setstate(tabBars.current?.findIndex(v => v.path === location.pathname))
+    }, [location])
     const tabBar = useMemo(() =>
         <TabBar
             unselectedTintColor="#888888"
@@ -33,7 +36,7 @@ const TabBarView: React.FC = () => {
         </TabBar>,
         [state, tabBars, OnTabClick])
     const isTabBar = tabBars.current?.findIndex(v => v.path === history.location.pathname) !== -1;
-    return <div className={`tabbar ${isTabBar?'in_page':'out_page'}`}>
+    return <div className={`tabbar ${isTabBar ? 'in_page' : 'out_page'}`}>
         {tabBar}
     </div>
 }

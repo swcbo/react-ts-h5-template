@@ -5,11 +5,11 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./index.scss";
 export interface AnimatedSwitchProps {
     children?: ReactNode,
-    type: 'right' | 'bottom'
+    type?: 'right' | 'bottom' | 'scroll' | 'fade'
 }
 
 let oldLocation: Location | null = null;
-const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type }) => {
+const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type = 'scroll' }) => {
     const history = useHistory()
     const location = useLocation()
     let classNames = '';
@@ -19,9 +19,7 @@ const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type }) => {
         classNames = `back-to-${type}`;
     }
     oldLocation = location;
-    return (<TransitionGroup
-        childFactory={child => React.cloneElement(child, { classNames })}
-    >
+    return (<TransitionGroup childFactory={child => React.cloneElement(child, { classNames })}>
         <CSSTransition key={location.pathname}
             timeout={500} appear unmountOnExit>
             <div>
