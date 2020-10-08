@@ -1,32 +1,13 @@
-import { Location } from "history";
-import React, { ReactNode, Suspense } from "react";
-import { Switch, useHistory, useLocation } from "react-router";
+import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { MySwitch } from "../../typings/switch";
 import "./index.scss";
-export interface AnimatedSwitchProps {
-    children?: ReactNode,
-    type?: 'right' | 'bottom' | 'scroll' | 'fade'
-}
 
-let oldLocation: Location | null = null;
-const AnimatedSwitch: React.FC<AnimatedSwitchProps> = ({ children, type = 'scroll' }) => {
-    const history = useHistory()
-    const location = useLocation()
-    let classNames = '';
-    if (history.action === 'PUSH') {
-        classNames = `forward-from-${type}`;
-    } else if (history.action === 'POP' && oldLocation) {
-        classNames = `back-to-${type}`;
-    }
-    oldLocation = location;
+const AnimatedSwitch: React.FC<MySwitch.AnimatedSwitchProps> = ({ children, classNames, primaryKey, timeout = 500,...other }) => {
     return (<TransitionGroup childFactory={child => React.cloneElement(child, { classNames })}>
-        <CSSTransition key={location.pathname}
-            timeout={500} appear unmountOnExit>
-            <div>
-                <Suspense fallback={<></>}>
-                    <Switch location={location} >{children}</Switch>
-                </Suspense>
-            </div>
+        <CSSTransition key={primaryKey}
+            timeout={timeout} appear unmountOnExit {...other}>
+            {children}
         </CSSTransition>
     </TransitionGroup>
     );

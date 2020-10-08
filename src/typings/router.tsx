@@ -1,22 +1,20 @@
 import { ComponentClass, FunctionComponent } from "react";
 import { RouteProps } from "react-router";
+import { MySwitch } from "./switch";
 
 export namespace MyRoute {
     export interface RouteConfig extends RouteProps {
         routes?: RouteConfig[] // 子列表
-        tabBars?: RouteChild[]
+        tabBars?: RouteTabBar[]
         redirect?: string
         isTabIndex?: boolean
-        sceneConfig?: {
-            enter: string
-            exit: string
-        },
+        sceneMode?: MySwitch.type,
         title?: string
         path: string | string[];
         component?: ComponentClass<any> | FunctionComponent<any>
     }
 
-    export type RouteChild = RouteConfig & {
+    export type RouteTabBar = RouteConfig & {
         icon: string
         title: string
         selectedIcon: string
