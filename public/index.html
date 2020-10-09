@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-08 21:49:30
+ * @LastEditTime: 2020-10-08 22:47:03
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,10 @@
     <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style"/>
     <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet"/>
    <% } %>
-  
+    <!-- 使用cdn的js文件 -->
+    <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+      <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+    <% } %>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -63,9 +66,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-      <!-- 使用cdn的js文件 -->
-      <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
-        <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
-      <% } %>
+      
   </body>
 </html>

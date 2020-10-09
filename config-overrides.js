@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-08 22:25:07
+ * @LastEditTime: 2020-10-09 11:03:20
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
@@ -20,11 +20,11 @@ console.log(`🔥当前自定义环境${process.env.REACT_APP_NODE_ENV}`);
 const CDN = {
 	css: [],
 	js: [
-		'https://unpkg.com/react@16.13.1/umd/react.production.min.js',
-		'https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js',
+		'https://lib.baomitu.com/react/16.13.1/cjs/react.production.min.js',
+		'https://lib.baomitu.com/react-dom/16.13.1/cjs/react-dom-server.browser.production.min.js',
 		'https://cdn.bootcss.com/axios/0.20.0/axios.min.js',
 		'https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js',
-		'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js',
+		'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js'
 	]
 };
 const alter_config = () => (config) => {
@@ -33,13 +33,6 @@ const alter_config = () => (config) => {
 		config.devtool = false;
 		paths.appBuild = path.join(path.dirname(paths.appBuild), distName);
 		config.output.path = path.join(path.dirname(config.output.path), distName);
-		config.externals = {
-			'react': 'React',
-			'react-dom': 'ReactDOM',
-			'react-router-dom': 'ReactRouterDOM',
-			'axios': 'axios',
-			'react-transition-group': 'ReactTransitionGroup'
-		};
 		config.plugins = [
 			...config.plugins,
 			new HtmlWebpackPlugin({
@@ -67,17 +60,14 @@ const alter_config = () => (config) => {
 };
 module.exports = override(
 	alter_config(),
-	// addWebpackExternals(
-	// 	IS_PRODUCTION
-	// 		? {
-	// 				axios: 'axios',
-	// 				react: 'React',
-	// 				'react-transition-group': 'ReactTransitionGroup',
-	// 				'react-dom': 'ReactDOM',
-	// 				'react-router-dom': 'ReactRouterDOM'
-	// 			}
-	// 		: {}
-	// ),
+	// addWebpackExternals({
+	// 	react: 'React',
+	// 	'react-dom': 'reactDom',
+	// 	'react-router-dom': 'ReactRouterDOM',
+	// 	axios: 'axios',
+	// 	'react-transition-group': 'ReactTransitionGroup',
+	// 	'react-transition-group': 'react-transition-group'
+	// }),
 	addWebpackAlias({
 		['@']: path.resolve(__dirname, './src'),
 		['@components']: path.resolve(__dirname, './src/components'),

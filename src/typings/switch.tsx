@@ -10,7 +10,6 @@ export namespace MySwitch {
         type?: type
         backClassName?: string
         forwardClassName?: string
-        in?: boolean;
         mountOnEnter?: boolean;
         unmountOnExit?: boolean;
 
