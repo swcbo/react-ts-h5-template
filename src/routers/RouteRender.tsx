@@ -58,7 +58,7 @@ const RouteRender: React.FC = () => {
     oldLocation.current = location.pathname;
     return <AnimatedSwitch classNames={classNames} primaryKey={location.pathname}>
         <div className="fullPage">
-            <Suspense fallback={<LoadingView />}>
+            <Suspense fallback={<></>}>
                 <Switch location={location} > {routes.map(v => generateRoute(v))}</Switch>
             </Suspense>
         </div>

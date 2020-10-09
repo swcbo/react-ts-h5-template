@@ -1,6 +1,6 @@
 import { TabBar } from 'antd-mobile';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 import routers from '../../routers';
 import './index.scss';
 const TabBarView: React.FC = () => {

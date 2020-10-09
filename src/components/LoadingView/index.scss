@@ -37,10 +37,6 @@
      border: 0 solid currentColor;
  }
  
- .la-square-jelly-box {
-     width: 128px;
-     height: 128px;
- }
  
  .la-square-jelly-box > div:nth-child(1),
  .la-square-jelly-box > div:nth-child(2) {
@@ -72,21 +68,9 @@
              animation: square-jelly-box-shadow .6s -.1s linear infinite;
  }
  
- .la-square-jelly-box.la-sm {
-     width: 32px;
-     height: 32px;
- }
  
- .la-square-jelly-box.la-2x {
-     width: 128px;
-     height: 128px;
- }
- 
- .la-square-jelly-box.la-3x {
-     width: 192px;
-     height: 192px;
- }
- 
+
+
  /*
   * Animations
   */
