@@ -18,16 +18,13 @@
 }
 
 .tabBarItem {
-    font-size: 16px;
+    font-size: 24px;
     height: 100%;
     flex: 1;
     color: $hint-color;
 
-    span {
-        margin-top: 2px;
-    }
-    i{
-        font-size: 50px;
+    i {
+        font-size: 46px;
     }
 }
 
