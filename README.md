@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-06 11:34:20
+ * @LastEditTime: 2020-10-09 21:10:08
 -->
 # React-ts-h5-template
 
@@ -35,4 +35,4 @@ yarn lint
 - [ ] vuex配置
 - [x] react-router配置
 - [x] antd
-- [ ] cdn引入
+- [x] cdn引入

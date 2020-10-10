@@ -2,7 +2,6 @@ import React, { Suspense, useRef } from "react";
 import { Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import routes, { TabBarList } from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
-import LoadingView from "../components/LoadingView";
 import { MyRoute } from "../typings/router";
 
 const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: MyRoute.RouteConfig) => {

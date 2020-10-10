@@ -1,8 +1,12 @@
 import LazyImage from '@/components/LazyImage'
-import React from 'react'
+import Toast from '@/components/Toast'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 const List: React.FC = () => {
     const history = useHistory()
+    useEffect(()=>{
+        Toast.fail()
+    },[])
     return <div onClick={() => history.push('/other')} style={{ backgroundColor: 'green' }}>
         <LazyImage src="http://ces.cdn.huangb.top/FhoBuqs4aUVefhmw3SfGqm7c9FQk" height={200} width={200}></LazyImage>
         <LazyImage src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2090550243,722151551&fm=26&gp=0.jpg" height={200} width={200}></LazyImage>
