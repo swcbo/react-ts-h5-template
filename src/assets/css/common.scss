@@ -3,6 +3,11 @@ body {
     padding: 0;
 }
 
+i {
+    font-family: 'white-icon';
+    font-style: normal !important;
+}
+
 .row_center {
     display: flex;
     flex-direction: row;
@@ -128,7 +133,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    > div:first-child{
+
+    >div:first-child {
         height: 100%;
         width: 100%;
     }

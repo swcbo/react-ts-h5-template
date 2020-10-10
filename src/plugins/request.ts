@@ -1,4 +1,4 @@
-import { Toast } from 'antd-mobile';
+import Toast from '@/components/Toast';
 import axios, { AxiosRequestConfig } from 'axios';
 /*
  * @Descripttion:
@@ -6,7 +6,7 @@ import axios, { AxiosRequestConfig } from 'axios';
  * @Author: 小白
  * @Date: 2020-10-04 13:11:29
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-05 09:03:44
+ * @LastEditTime: 2020-10-10 21:09:22
  */
 import { getAuth, setAuth } from './../utils/index';
 

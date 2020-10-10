@@ -1,18 +1,16 @@
-import { NoticeProps } from '@/typings/notice'
+import { White } from '@/typings'
 import React from 'react'
 const icons = {
-    info: 'icon-info-circle-fill',
-    success: 'icon-check-circle-fill',
-    warning: 'icon-warning-circle-fill',
-    fail: 'icon-close-circle-fill',
-    loading: 'icon-loading'
+    info: 'white-RectangleCopy3',
+    success: 'white-RectangleCopy1',
+    warning: 'white-RectangleCopy2',
+    fail: 'white-RectangleCopy',
+    loading: 'white-loading'
 }
-const Notice: React.VFC<NoticeProps> = ({ type, content }) => {
+const Notice: React.VFC<White.NoticeProps> = ({ type, content }) => {
     return (
         <div className={`toast-notice ${type} column_center`}>
-            <svg className="icon" aria-hidden="true">
-                <use xlinkHref={`#${icons[type]}`} />
-            </svg>
+            <i className={`${icons[type]} icon`}></i>
             <span>{content}</span>
         </div>
     )

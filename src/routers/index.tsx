@@ -1,5 +1,5 @@
+import { White } from '@/typings';
 import { lazy } from 'react';
-import { MyRoute } from '../typings/router';
 const Search = lazy(() => import('../pages/Search' /* webpackChunkName: "Search" */))
 const List = lazy(() => import('../pages/List' /* webpackChunkName: `List` */))
 const Home = lazy(() => import('../pages/Home' /* webpackChunkName: "Home" */))
@@ -8,7 +8,7 @@ const Index = lazy(() => import('../pages/Index' /* webpackChunkName: "Index" */
 const Other = lazy(() => import('../pages/Other' /* webpackChunkName: "Other" */))
 const Other1 = lazy(() => import('../pages/Other1' /* webpackChunkName: "Other1" */))
 const NoFound = lazy(() => import('../components/NoFound' /* webpackChunkName: "NoFound" */))
-const commonRoutes: MyRoute.RouteConfig[] = [
+const commonRoutes: White.RouteConfig[] = [
     {
         path: '/nofound',
         component: NoFound,
@@ -22,41 +22,37 @@ const commonRoutes: MyRoute.RouteConfig[] = [
         redirect: '/nofound',
     }
 ]
-export const TabBarList: MyRoute.RouteTabBar[] = [
+export const TabBarList: White.RouteTabBar[] = [
     {
         path: "/home/index",
         component: Home,
-        selectedIcon: require('@images/home_tab_select.png'),
-        icon: require('@images/home_tab.png'),
+        icon: 'white-home1',
         sceneMode: 'scroll',
         title: '首页'
     },
     {
         path: "/home/detail",
         component: Detail,
-        selectedIcon: require('@images/detail_tab_select.png'),
-        icon: require('@images/detail_tab.png'),
+        icon: 'white-tradingdata',
         sceneMode: 'scroll',
         title: '详情'
     },
     {
         path: "/home/list",
         component: List,
-        selectedIcon: require('@images/list_tab_select.png'),
-        icon: require('@images/list_tab.png'),
+        icon: 'white-order',
         sceneMode: 'scroll',
-        title: '列表'
+        title: '统计'
     },
     {
         path: "/home/search",
         component: Search,
-        selectedIcon: require('@images/search_tab_select.png'),
-        icon: require('@images/search_tab.png'),
+        icon: 'white-account',
         sceneMode: 'scroll',
-        title: '搜索'
+        title: '我的'
     }
 ]
-const routes: MyRoute.RouteConfig[] = [
+const routes: White.RouteConfig[] = [
     {
         path: ['/home'],
         component: Index,

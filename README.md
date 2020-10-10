@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-09 21:10:08
+ * @LastEditTime: 2020-10-10 21:56:32
 -->
 # React-ts-h5-template
 
@@ -28,11 +28,18 @@ yarn build:prod
 yarn lint
 ```
 
+
+
 ### To-do List
-- [x] typescript配置
-- [x] postcss-px-to-viewport配置
-- [x] 路由懒加载
-- [ ] vuex配置
-- [x] react-router配置
-- [x] antd
-- [x] cdn引入
+- [x] typescript
+- [x] postcss-px-to-viewport
+- [x] 自定义toast
+- [x] route-lazy
+- [x] react-router(route add animotion)
+- [x] cdn
+
+
+### 图标库地址
+```
+https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2119875
+```

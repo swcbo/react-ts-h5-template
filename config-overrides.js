@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-09 21:03:13
+ * @LastEditTime: 2020-10-10 21:25:56
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
@@ -93,8 +93,8 @@ module.exports = override(
 			exclude: /(\/|\\)(node_modules)(\/|\\)/
 		})
 	]),
-	fixBabelImports('import', {
-		libraryName: 'antd-mobile',
-		style: 'css'
-	})
+	// fixBabelImports('import', {
+	// 	libraryName: 'antd-mobile',
+	// 	style: 'css'
+	// })
 );

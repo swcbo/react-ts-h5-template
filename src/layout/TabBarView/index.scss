@@ -2,7 +2,7 @@
     object-fit: contain;
 }
 
-.tabbar {
+.tabBar {
     position: fixed;
     bottom: 0;
     background: white;
@@ -15,6 +15,24 @@
     box-sizing: border-box;
     z-index: 100;
     transition: 0.5s all;
+}
+
+.tabBarItem {
+    font-size: 16px;
+    height: 100%;
+    flex: 1;
+    color: $hint-color;
+
+    span {
+        margin-top: 2px;
+    }
+    i{
+        font-size: 50px;
+    }
+}
+
+.chooseed {
+    color: $color-primary;
 }
 
 .in_page {

@@ -1,8 +1,8 @@
-import { NoticeProps, WhiteNotifiCation } from "@/typings/notice"
+import { White } from "@/typings"
 import createNotifiCation from "./Notification"
 
-let notification: WhiteNotifiCation | null = null
-const notice = (notice: NoticeProps) => {
+let notification: White.NotifiCation | null = null
+const notice = (notice: White.NoticeProps) => {
     if (!notification) notification = createNotifiCation
     return notification.addNotice(notice)
 }

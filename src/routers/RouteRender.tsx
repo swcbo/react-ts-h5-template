@@ -1,10 +1,10 @@
+import { White } from "@/typings";
 import React, { Suspense, useRef } from "react";
 import { Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import routes, { TabBarList } from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
-import { MyRoute } from "../typings/router";
 
-const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: MyRoute.RouteConfig) => {
+const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: White.RouteConfig) => {
     const realKey = Array.isArray(path) ? path[0] : path
     if (routes || tabBars) {
         return <Route {...other} path={path} key={realKey} render={() => {

@@ -1,4 +1,4 @@
-import { NoticeProps, NotifiCationProps, NotifiCationRef, WhiteNotifiCation } from "@/typings/notice"
+import { White } from "@/typings"
 import React, { createRef, forwardRef, useCallback, useImperativeHandle, useState } from "react"
 import ReactDOM from "react-dom"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
@@ -6,8 +6,8 @@ import './index.scss'
 import Notice from './Notice'
 
 
-const NotifiCation = forwardRef<NotifiCationRef, NotifiCationProps>(({ transitionTime = 300 }, ref) => {
-    const [notices, setNotice] = useState<NoticeProps[]>([])
+const NotifiCation = forwardRef<White.NotifiCationRef, White.NotifiCationProps>(({ transitionTime = 300 }, ref) => {
+    const [notices, setNotice] = useState<White.NoticeProps[]>([])
     const removeNotice = useCallback(
         (key: string) => {
             setNotice(notices.filter(notice => {
@@ -27,7 +27,7 @@ const NotifiCation = forwardRef<NotifiCationRef, NotifiCationProps>(({ transitio
         [notices, transitionTime],
     )
     useImperativeHandle(ref, () => ({
-        addNotice: (notice: NoticeProps) => {
+        addNotice: (notice: White.NoticeProps) => {
             notice.key = `notice_${new Date().getTime()}_${notices.length}`
             if (notices.findIndex(v => v.key !== notice.key) === -1) {
                 if (notice.type === 'loading') {
@@ -71,12 +71,12 @@ const NotifiCation = forwardRef<NotifiCationRef, NotifiCationProps>(({ transitio
     </TransitionGroup>
 })
 
-const createNotifiCation = (): WhiteNotifiCation => {
-    const ref = createRef<NotifiCationRef>()
+const createNotifiCation = (): White.NotifiCation => {
+    const ref = createRef<White.NotifiCationRef>()
     const modalRoot = document.getElementById('modal-root')
     ReactDOM.render(<NotifiCation ref={ref} />, modalRoot!!)
     return {
-        addNotice: (notice: NoticeProps) => ref.current!!.addNotice(notice),
+        addNotice: (notice: White.NoticeProps) => ref.current!!.addNotice(notice),
         removeAll: () => ref.current?.removeAll(),
         destroy() {
             ReactDOM.unmountComponentAtNode(modalRoot!!)
