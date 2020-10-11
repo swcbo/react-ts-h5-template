@@ -1706,6 +1706,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-virtualized@^9.21.10":
+  version "9.21.10"
+  resolved "https://registry.npm.taobao.org/@types/react-virtualized/download/@types/react-virtualized-9.21.10.tgz#cd072dc9c889291ace2c4c9de8e8c050da8738b7"
+  integrity sha1-zQctyciJKRrOLEyd6OjAUNqHOLc=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^16.9.0":
   version "16.9.51"
   resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.9.51.tgz#f8aa51ffa9996f1387f63686696d9b59713d2b60"

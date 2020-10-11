@@ -6,7 +6,7 @@ import { RouteProps } from 'react-router-dom';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-10 21:39:07
+ * @LastEditTime: 2020-10-11 16:31:13
  */
 export namespace White {
 	// route
@@ -42,9 +42,9 @@ export namespace White {
 	}
 
 	export interface NotifiCationRef {
-        // add notice
-        addNotice: (notice: NoticeProps) => () => void;
-        // removeAll notice
+		// add notice
+		addNotice: (notice: NoticeProps) => () => void;
+		// removeAll notice
 		removeAll: () => void;
 	}
 	// switch
@@ -59,5 +59,16 @@ export namespace White {
 		forwardClassName?: string;
 		mountOnEnter?: boolean;
 		unmountOnExit?: boolean;
+	}
+
+	export interface VirListProps {
+		list: any[];
+		itemH: number;
+		itemRender: (key: any, val: any) => JSX.Element;
+		wrapNum?: number;
+		loadMoreHieght?: number;
+		height?: number;
+		wrapperClass?: string;
+		isEndLoad?:boolean
 	}
 }

@@ -1,7 +1,12 @@
 body {
     margin: 0;
     padding: 0;
+    width: 100vw;
+    overflow: hidden;
 }
+html, body {
+    -webkit-overflow-scroll: touch;
+  }
 
 i {
     font-family: 'white-icon';
@@ -39,6 +44,13 @@ i {
 .row {
     display: flex;
     flex-direction: row;
+}
+
+.row_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
 
 .column {
@@ -125,7 +137,7 @@ i {
 
 
 .fullPage {
-    height: 100vh;
+    height: calc(100%);
     width: 100vw;
     padding-bottom: calc(constant(safe-area-inset-bottom));
     padding-bottom: calc(env(safe-area-inset-bottom));
@@ -149,7 +161,7 @@ i {
     position: fixed;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: $height-primary;
     width: 100vw;
     background: $background-color;
     z-index: 1;

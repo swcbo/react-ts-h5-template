@@ -4,13 +4,14 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-09 20:58:19
+ * @LastEditTime: 2020-10-11 21:06:07
  */
 import ReactDOM from 'react-dom';
 import React from 'react';
 import '@/assets/css/common.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+document.getElementsByTagName('body')[0].style.setProperty('--height-primary', `${window.innerHeight}px`);
 ReactDOM.render(
   <App />,
   document.getElementById('root')

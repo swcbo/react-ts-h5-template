@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-11 09:33:36
+ * @LastEditTime: 2020-10-11 18:04:54
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
@@ -26,11 +26,11 @@ console.log(`🔥当前自定义环境${process.env.REACT_APP_NODE_ENV}`);
 const CDN = {
 	css: [],
 	js: [
-		'https://lib.baomitu.com/react/16.13.1/umd/react.production.min.js',
-		'https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js',
-		'https://cdn.bootcdn.net/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
-		'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js',
-		'https://cdn.bootcss.com/axios/0.20.0/axios.min.js'
+		// 'https://lib.baomitu.com/react/16.13.1/umd/react.production.min.js',
+		// 'https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js',
+		// 'https://cdn.bootcdn.net/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
+		// 'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js',
+		// 'https://cdn.bootcss.com/axios/0.20.0/axios.min.js'
 	]
 };
 const alter_config = () => (config) => {
@@ -67,17 +67,17 @@ const alter_config = () => (config) => {
 module.exports = override(
 	alter_config(),
 	setWebpackPublicPath(IS_PRODUCTION ? '/test/' : './'),
-	addWebpackExternals(
-		IS_PRODUCTION
-			? {
-					react: 'window.React',
-					'react-dom': 'window.ReactDOM',
-					'react-router-dom': 'window.ReactRouterDOM',
-					axios: 'window.axios',
-					'react-transition-group': 'window.ReactTransitionGroup'
-				}
-			: {}
-	),
+	// addWebpackExternals(
+	// 	IS_PRODUCTION
+	// 		? {
+	// 				react: 'window.React',
+	// 				'react-dom': 'window.ReactDOM',
+	// 				'react-router-dom': 'window.ReactRouterDOM',
+	// 				axios: 'window.axios',
+	// 				'react-transition-group': 'window.ReactTransitionGroup'
+	// 			}
+	// 		: {}
+	// ),
 	addWebpackAlias({
 		['@']: path.resolve(__dirname, './src'),
 		['@components']: path.resolve(__dirname, './src/components'),

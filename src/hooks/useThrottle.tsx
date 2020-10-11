@@ -8,17 +8,20 @@ import { useCallback, useRef } from "react"
 const useThrottle = (fun: Function, delay: number, deps: any[]) => {
     const timer = useRef<NodeJS.Timeout | null>()
     return useCallback((...args) => {
-        if (!timer.current) {
+        if (!delay) {
+            fun.apply(fun, args)
+        } else if (!timer.current) {
             timer.current = setTimeout(() => {
                 fun.apply(fun, args)
                 timer.current && clearTimeout(timer.current)
                 timer.current = null;
             }, delay)
         }
+
         return () => {
             timer.current && clearTimeout(timer.current)
             timer.current = null;
         }
-    }, [...deps])
+    }, [...deps, delay, fun])
 }
 export default useThrottle
