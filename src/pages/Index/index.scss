@@ -8,7 +8,7 @@
     padding-bottom: calc(90px + env(safe-area-inset-bottom));
     box-sizing: border-box;
 
-    >div:first-child {
+    >div:first-of-type {
         min-height: 100%;
         width: 100%;
     }

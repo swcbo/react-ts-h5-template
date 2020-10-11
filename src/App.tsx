@@ -7,7 +7,7 @@ import TabBarView from './layout/TabBarView';
 import RouteRender from './routers/RouteRender';
 function App() {
   return (
-    <Router>
+    <Router basename="/test">
       <RouteRender />
       <TabBarView />
     </Router>

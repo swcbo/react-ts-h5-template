@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-10 21:56:32
+ * @LastEditTime: 2020-10-10 23:05:53
 -->
 # React-ts-h5-template
 
@@ -33,10 +33,13 @@ yarn lint
 ### To-do List
 - [x] typescript
 - [x] postcss-px-to-viewport
-- [x] 自定义toast
+- [x] custom toast
 - [x] route-lazy
 - [x] react-router(route add animotion)
 - [x] cdn
+- [ ] vir List(pull  loadmore)
+- [ ] module
+- [ ] custom hooks
 
 
 ### 图标库地址

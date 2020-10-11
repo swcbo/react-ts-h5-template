@@ -4,11 +4,17 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-10 21:25:56
+ * @LastEditTime: 2020-10-11 09:33:36
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
-const { override, fixBabelImports, addPostcssPlugins, addWebpackAlias, addWebpackExternals } = require('customize-cra');
+const {
+	override,
+	addPostcssPlugins,
+	addWebpackAlias,
+	addWebpackExternals,
+	setWebpackPublicPath
+} = require('customize-cra');
 const path = require('path');
 const WebpackBar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -22,14 +28,14 @@ const CDN = {
 	js: [
 		'https://lib.baomitu.com/react/16.13.1/umd/react.production.min.js',
 		'https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js',
-		'https://cdn.bootcss.com/axios/0.20.0/axios.min.js',
-		'https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js',
-		'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js'
+		'https://cdn.bootcdn.net/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
+		'https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.min.js',
+		'https://cdn.bootcss.com/axios/0.20.0/axios.min.js'
 	]
 };
 const alter_config = () => (config) => {
 	if (IS_PRODUCTION) {
-		const distName = `dist_${process.env.REACT_APP_NODE_ENV}`;
+		const distName = `build_${process.env.REACT_APP_NODE_ENV}`;
 		config.devtool = false;
 		paths.appBuild = path.join(path.dirname(paths.appBuild), distName);
 		config.output.path = path.join(path.dirname(config.output.path), distName);
@@ -60,6 +66,7 @@ const alter_config = () => (config) => {
 };
 module.exports = override(
 	alter_config(),
+	setWebpackPublicPath(IS_PRODUCTION ? '/test/' : './'),
 	addWebpackExternals(
 		IS_PRODUCTION
 			? {
@@ -92,7 +99,7 @@ module.exports = override(
 			replace: true,
 			exclude: /(\/|\\)(node_modules)(\/|\\)/
 		})
-	]),
+	])
 	// fixBabelImports('import', {
 	// 	libraryName: 'antd-mobile',
 	// 	style: 'css'

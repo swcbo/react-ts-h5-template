@@ -5,10 +5,11 @@ export interface LoadingViewProps {
     style?: string
     height?: number
     width?: number
+    isPage?: boolean
 }
 
-const LoadingView: React.FC<LoadingViewProps> = ({ className, width, height }) => {
-    return <div className={`column_center ${className ?? 'loading_body'}`}>
+const LoadingView: React.FC<LoadingViewProps> = ({ className, width, height, isPage }) => {
+    return <div className={`column_center fullBody ${className ?? (isPage && 'page_loading_body')}`} >
         <div className="la-square-jelly-box" style={{ height: height ?? 64, width: width ?? 64 }}>
             <div></div>
             <div></div>

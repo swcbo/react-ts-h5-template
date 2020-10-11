@@ -23,7 +23,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, objectFit, ...other }) => {
                     setLoading(false)
                     setError('加载失败')
                 }}></img>}
-            {loading && <LoadingView className="loading_bg" {...other} height={16} width={16}></LoadingView>}
+            {loading && <LoadingView className="loading_bg" {...other} height={50} width={50}></LoadingView>}
             {error && <div className="error_div column_center">{error}</div>}
         </div>
     </LazyLoad>
