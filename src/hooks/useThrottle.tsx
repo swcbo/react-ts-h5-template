@@ -7,6 +7,7 @@ import { useCallback, useRef } from "react"
  */
 const useThrottle = (fun: Function, delay: number, deps: any[]) => {
     const timer = useRef<NodeJS.Timeout | null>()
+   
     return useCallback((...args) => {
         if (!delay) {
             fun.apply(fun, args)

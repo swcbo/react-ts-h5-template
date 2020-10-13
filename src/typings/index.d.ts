@@ -6,7 +6,7 @@ import { RouteProps } from 'react-router-dom';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-11 16:31:13
+ * @LastEditTime: 2020-10-11 22:48:11
  */
 export namespace White {
 	// route
@@ -70,5 +70,6 @@ export namespace White {
 		height?: number;
 		wrapperClass?: string;
 		isEndLoad?:boolean
+		refreshHeight?:number;
 	}
 }

@@ -1,5 +1,5 @@
 .tabbar_page {
-    height: $height-primary !important;
+    height: calc(#{ $height-primary}) !important;
     width: 100vw !important;
     position: absolute;
     left: 0;

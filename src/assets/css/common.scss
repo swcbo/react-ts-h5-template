@@ -161,7 +161,7 @@ i {
     position: fixed;
     left: 0;
     top: 0;
-    height: $height-primary;
+    height: calc(#{ $height-primary});
     width: 100vw;
     background: $background-color;
     z-index: 1;
