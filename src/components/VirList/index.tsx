@@ -121,7 +121,7 @@ const VirList: React.FC<White.VirListProps>
             onTouchEnd={handleEndMove}
             ref={wrapperRef} >
             <div className={`virtual-list-height`} style={{ height: totalHeight() }} />
-            <div className={`view-content ${wrapNum > 1 && 'row_wrap'}`} style={{ transform: `translate3d(0, ${virObject.transform}px, 0)`, transition: isRefresh ? 'all 0.0165s' : 'none', marginTop: -refreshHeight }}>
+            <div className={`view-content ${wrapNum > 1 && 'row_wrap'}`} style={{ transform: `translate3d(0, ${virObject.transform}px, 0)`, transition: isRefresh ? 'all 0.0065s' : 'none', marginTop: -refreshHeight }}>
                 <div className="refresh_view row_center" style={{ height: refreshHeight, opacity: isRefresh ? 1 : 0 }}>{
                     <div className="column_center">
                         <LoadingView height={24} width={24} />
