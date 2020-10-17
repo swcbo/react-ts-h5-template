@@ -5,12 +5,30 @@ import {
 import './App.css';
 import TabBarView from './layout/TabBarView';
 import RouteRender from './routers/RouteRender';
+import { ModelList, WhiteContext } from './helpers/constant';
+import Dispatcher from '@/helpers/dispatcher';
+import Executor from '@/helpers/executor';
+
+
+const dispatcher = new Dispatcher();
+const Exe = Executor;
 function App() {
   return (
-    <Router basename="/test">
-      <RouteRender />
-      <TabBarView />
-    </Router>
+    <WhiteContext.Provider value={dispatcher}>
+      {
+        Object.entries(ModelList).map(pair => {
+          return < Exe key={pair[0]} namespace={pair[0]} hook={pair[1]} onUpdate={(val: any) => {
+            const [ns] = pair as any;
+            dispatcher.data[ns] = val;
+            dispatcher.update(ns);
+          }} />
+        })
+      }
+      <Router basename="/test">
+        <RouteRender />
+        <TabBarView />
+      </Router>
+    </WhiteContext.Provider>
   );
 }
 export default App;

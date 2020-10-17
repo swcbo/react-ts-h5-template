@@ -1,3 +1,4 @@
+import { ModelList } from './../helpers/constant';
 import { RouteProps } from 'react-router-dom';
 
 /*
@@ -6,7 +7,7 @@ import { RouteProps } from 'react-router-dom';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-11 22:48:11
+ * @LastEditTime: 2020-10-17 22:29:25
  */
 export namespace White {
 	// route
@@ -69,7 +70,14 @@ export namespace White {
 		loadMoreHieght?: number;
 		height?: number;
 		wrapperClass?: string;
-		isEndLoad?:boolean
-		refreshHeight?:number;
+		isEndLoad?: boolean;
+		refreshHeight?: number;
 	}
+
+	// useModel
+	export type ModelKeys = keyof typeof ModelList;
+	export type Models = typeof ModelList;
+	export type ModelsReturnTypes<T> = ReturnType<Models[T]>
+	export const  useModel : <T extends ModelKeys>(model: ModelKeys)=> ModelsReturnTypes<T>;
+	export const  useModel : <T extends ModelKeys, U>(model: T, selector: (model: ModelsReturnTypes<T>) => U)=> U;
 }
