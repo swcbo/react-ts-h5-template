@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-11 17:35:29
+ * @LastEditTime: 2020-10-17 22:51:50
 -->
 # React-ts-h5-template
 
@@ -37,8 +37,8 @@ yarn lint
 - [x] route-lazy
 - [x] react-router(route add animotion)
 - [x] cdn
-- [ ] vir List(pull  loadmore)
-- [ ] module
+- [x] vir List(pull  loadmore)
+- [x] useModel
 - [x] custom hooks
 
 

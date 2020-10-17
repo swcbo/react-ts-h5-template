@@ -1,9 +1,7 @@
-
-import { WhiteContext } from '@/helpers/constant';
+import { WhiteContext } from '@/App';
 import { White } from '@/typings';
 import isEqual from 'fast-deep-equal';
 import { useContext, useEffect, useRef, useState } from 'react';
-
 export function useModel<T extends White.ModelKeys, U>(
     namespace: T,
     updater?: (model: White.ModelsReturnTypes<T>) => U

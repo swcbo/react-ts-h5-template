@@ -5,14 +5,13 @@ import {
 import './App.css';
 import TabBarView from './layout/TabBarView';
 import RouteRender from './routers/RouteRender';
-import { ModelList, WhiteContext } from './helpers/constant';
 import Dispatcher from '@/helpers/dispatcher';
 import Executor from '@/helpers/executor';
-
-
+import { ModelList } from './constant';
+export const WhiteContext = React.createContext({});
 const dispatcher = new Dispatcher();
 const Exe = Executor;
-function App() {
+const App = () => {
   return (
     <WhiteContext.Provider value={dispatcher}>
       {
