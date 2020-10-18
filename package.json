@@ -43,25 +43,15 @@
 		"test": "react-app-rewired test --env=jsdom",
 		"eject": "react-scripts eject"
 	},
+	"browserslist": {
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+	},
+
 	"eslintConfig": {
 		"extends": "react-app",
-		"plugins": [
-			"react-hooks"
-		],
 		"rules": {
-			"react-hooks/exhaustive-deps": "error"
+			"react-hooks/exhaustive-deps": "off"
 		}
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
 	}
 }

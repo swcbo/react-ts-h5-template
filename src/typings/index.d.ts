@@ -7,7 +7,7 @@ import { RouteProps } from 'react-router-dom';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-17 23:00:46
+ * @LastEditTime: 2020-10-18 09:44:04
  */
 export namespace White {
 	// route
@@ -72,6 +72,7 @@ export namespace White {
 		wrapperClass?: string;
 		isEndLoad?: boolean;
 		refreshHeight?: number;
+		pageSize?:number
 	}
 
 	// useModel

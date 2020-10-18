@@ -5,15 +5,13 @@ const useAxios = <T extends object>(fun: () => Promise<T>, deps: any[]) => {
     const doAxios = useCallback(
         async () => {
             try {
-                const data = await fun()
-                // 重复数据不再刷新
-                if (JSON.stringify(reponse) === JSON.stringify(data)) return
-                setReponse(data)
+                const data = await fun() as any
+                setReponse(data.data)
             } catch (error) {
                 setError(error)
             }
         },
-        [...deps, fun, reponse],
+        [...deps],
     )
     return {
         doAxios,

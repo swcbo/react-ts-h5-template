@@ -20,6 +20,15 @@
     "noEmit": true,
     "jsx": "react"
   },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "error"
+    }
+  },
   "include": [
     "src"
   ]

@@ -6,9 +6,9 @@ import React, { useCallback, useEffect, useRef, useState, useMemo, memo } from '
 import LoadingView from '../LoadingView'
 import './index.scss'
 const VirList: React.FC<White.VirListProps>
-    = ({ list, itemH, itemRender, wrapNum = 1, loadMoreHieght = 50, wrapperClass, isEndLoad, refreshHeight = 100 }) => {
+    = ({ list = [], itemH, itemRender, wrapNum = 1, loadMoreHieght = 50, wrapperClass, isEndLoad, refreshHeight = 100, pageSize = 10 }) => {
         const page = useRef(1)
-        const itemList = useRef(list.slice(0, 25))
+        const itemList = useRef(list.slice(0, pageSize))
         const viewCount = useRef(0)
         const moveStart = useRef(0)//当前手指位置
         const onRefresh = useRef(false)//当前手指位置
@@ -39,11 +39,11 @@ const VirList: React.FC<White.VirListProps>
 
         //监听加载更多
         useEffect(() => {
-            if (showLoadMore && page.current * 25 < list.length) {
+            if (showLoadMore && page.current * pageSize < list.length) {
                 Toast.loading()
                 setTimeout(() => {
                     page.current = page.current + 1
-                    itemList.current = list.slice(0, 25 * page.current)
+                    itemList.current = list.slice(0, pageSize * page.current)
                     toMoveWapper()
                     Toast.hide()
                 }, 1000);
@@ -54,7 +54,7 @@ const VirList: React.FC<White.VirListProps>
         const handleRefresh = useCallback(async () => {
             setTimeout(() => {
                 page.current = 1;
-                itemList.current = list.slice(0, 25)
+                itemList.current = list.slice(0, pageSize)
                 toMoveWapper()
                 Toast.hide()
             }, 1000);
