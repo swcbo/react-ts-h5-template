@@ -1,10 +1,10 @@
 /*
- * @Descripttion: 
+ * @Descripttion: 配置
  * @version: 
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-18 10:59:42
+ * @LastEditTime: 2020-10-18 17:08:40
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
@@ -28,12 +28,12 @@ const CDN = {
 	css: [],
 	js: [
 		'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js',
-		'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js',
+		'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js'
 	]
 };
 const alter_config = () => (config) => {
 	if (IS_PRODUCTION) {
-		const distName = `build_${process.env.REACT_APP_NODE_ENV}`;
+		const distName = `build`;
 		config.devtool = false;
 		paths.appBuild = path.join(path.dirname(paths.appBuild), distName);
 		config.output.path = path.join(path.dirname(config.output.path), distName);
@@ -48,7 +48,12 @@ const alter_config = () => (config) => {
 			new FileManagerPlugin({
 				onEnd: {
 					delete: [ `./*.zip` ],
-					archive: [ { source: `./${distName}`, destination: `./${distName}_${packageinfo.version}.zip` } ]
+					archive: [
+						{
+							source: `./${distName}`,
+							destination: `./${distName}_${process.env.REACT_APP_NODE_ENV}_${packageinfo.version}.zip`
+						}
+					]
 				}
 			})
 		];
@@ -69,8 +74,8 @@ module.exports = override(
 	addWebpackExternals(
 		IS_PRODUCTION
 			? {
-				'react': 'window.React',
-				'react-dom': 'window.ReactDOM',
+					react: 'window.React',
+					'react-dom': 'window.ReactDOM'
 				}
 			: {}
 	),
