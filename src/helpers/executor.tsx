@@ -21,21 +21,21 @@ export default (props: ExecutorProps) => {
       typeof document !== 'undefined'
     ) {
       let count = Object.keys(
-        ((window as any)._umi_useModel_dev_tool_log || {})[namespace] || {},
+        ((window as any)._white_useModel_dev_tool_log || {})[namespace] || {},
       ).length;
-      (window as any)._umi_useModel_dev_tool = {
-        ...(window as any)._umi_useModel_dev_tool,
+      (window as any)._white_useModel_dev_tool = {
+        ...(window as any)._white_useModel_dev_tool,
         [namespace]: data,
       };
-      (window as any)._umi_useModel_dev_tool_log = {
-        ...(window as any)._umi_useModel_dev_tool_log,
+      (window as any)._white_useModel_dev_tool_log = {
+        ...(window as any)._white_useModel_dev_tool_log,
         [namespace]: {
-          ...((window as any)._umi_useModel_dev_tool_log || {})[namespace],
+          ...((window as any)._white_useModel_dev_tool_log || {})[namespace],
           [count]: data,
         },
       };
       window.dispatchEvent(
-        new CustomEvent('_umi_useModel_update', {
+        new CustomEvent('_white_useModel_update', {
           detail: {
             namespace,
             time: Date.now(),

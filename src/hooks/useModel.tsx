@@ -44,6 +44,7 @@ export function useModel<T extends White.ModelKeys, U>(
                 }
             }
         }
+        
         try {
             dispatcher.callbacks![namespace]!.add(handler);
             dispatcher.update(namespace);

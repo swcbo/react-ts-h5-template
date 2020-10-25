@@ -1,10 +1,10 @@
 <!--
- * @Descripttion: 
+ * @Descripttion: ReadMe
  * @version: 
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-17 23:43:31
+ * @LastEditTime: 2020-10-18 17:23:10
 -->
 # React-ts-h5-template
 

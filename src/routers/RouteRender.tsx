@@ -1,14 +1,15 @@
 import { White } from "@/typings";
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useMemo, useRef } from "react";
 import { Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import routes, { TabBarList } from ".";
 import AnimatedSwitch from "../components/AnimatedSwitch";
 
 const generateRoute = ({ redirect, routes, path, component: Component, exact, tabBars, ...other }: White.RouteConfig) => {
     const realKey = Array.isArray(path) ? path[0] : path
+    let realPath = path instanceof Array ? path[0] : path
     if (routes || tabBars) {
         return <Route {...other} path={path} key={realKey} render={() => {
-            if (other.title)
+            if (other.title && document.location.pathname.includes(realPath))
                 document.title = other.title
             return Component && <Component tabBars={tabBars} {...other}>
                 <Switch>
@@ -25,7 +26,7 @@ const generateRoute = ({ redirect, routes, path, component: Component, exact, ta
         return <Redirect to={redirect} key={`redirect_${redirect}`} exact from={realKey} />
     }
     return <Route {...other} path={path} key={realKey} render={() => {
-        if (other.title)
+        if (other.title && document.location.pathname.includes(realPath))
             document.title = other.title
         return Component && <Component tabBars={tabBars} {...other}>
         </Component>
@@ -55,10 +56,13 @@ const RouteRender: React.FC = () => {
         }
     }
     oldLocation.current = location.pathname;
+    const routesView = useMemo(() => {
+        return routes.map(v => generateRoute(v))
+    }, [routes])
     return <AnimatedSwitch classNames={classNames} primaryKey={location.pathname}>
         <div className="fullPage">
             <Suspense fallback={<></>}>
-                <Switch location={location} > {routes.map(v => generateRoute(v))}</Switch>
+                <Switch location={location} > {routesView}</Switch>
             </Suspense>
         </div>
     </AnimatedSwitch>
