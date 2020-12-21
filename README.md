@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 15:19:58
+ * @LastEditTime: 2020-12-21 16:35:21
 -->
 # React-ts-h5-template
 ## 说明
@@ -35,8 +35,16 @@ yarn lint
 ## 注意
 
 本项目使用dotenv来覆盖webpack配置和自定义环境变量等如果没安装dotenv可执行下方命令
+
+### Yarn
 ```
-dotenv yarn global add dotenv-cli
+yarn global add dotenv-cli
+```
+
+
+### NPM
+```
+npm install -g dotenv-cli
 ```
 
 ## To-do List
