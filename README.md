@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 18:16:41
+ * @LastEditTime: 2020-12-21 20:23:41
 -->
 # React-ts-h5-template
 ## 说明
@@ -14,7 +14,6 @@
 **项目持续迭代中,如果有疑问[提出 issues](https://github.com/q1104133609/react-ts-h5-template/issues/new)**
 
 ## 预览地址
-<p>&lt;img src=&quot;http://pic15.photophoto.cn/20100615/0006019058815826_b.jpg&quot;  height=&quot;330&quot; width=&quot;495&quot;&gt;</p>
 ![url](./public/demo.png)
 
 ## Project setup
