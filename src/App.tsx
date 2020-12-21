@@ -23,7 +23,7 @@ const App = () => {
           }} />
         })
       }
-      <Router>
+      <Router basename=".">
         <RouteRender />
         <TabBarView />
       </Router>
