@@ -4,10 +4,14 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-18 17:23:10
+ * @LastEditTime: 2020-12-21 15:19:58
 -->
 # React-ts-h5-template
+## 说明
 
+**该项目是基于React Hooks框架配合Typescript语言的H5端快速开发的模板项目,该项目适配屏幕使用的`postcss-px-to-viewport`直接写px自动转换为vw或者rem,项目也添加了路由切换动画,适配`chrome safari底部工具栏`**
+
+**项目持续迭代中,如果有疑问[提出 issues](https://github.com/q1104133609/react-ts-h5-template/issues/new)**
 ## Project setup
 ```
 yarn install
@@ -28,9 +32,14 @@ yarn build:prod
 yarn lint
 ```
 
+## 注意
 
+本项目使用dotenv来覆盖webpack配置和自定义环境变量等如果没安装dotenv可执行下方命令
+```
+dotenv yarn global add dotenv-cli
+```
 
-### To-do List
+## To-do List
 - [x] typescript
 - [x] postcss-px-to-viewport
 - [x] custom toast
@@ -40,8 +49,9 @@ yarn lint
 - [x] vir List(pull  loadmore)
 - [x] useModel
 - [x] custom hooks
+- [ ] ssr
 
-### 目录结构
+## 项目目录
 ```
 react-ts-h5-template
 ├─ .env.dev //dev⚙
@@ -103,7 +113,7 @@ react-ts-h5-template
 
 ```
 
-### 图标库地址
+## 图标地址
 ```
 https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2119875
 ```

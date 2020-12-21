@@ -1,8 +1,9 @@
-import VirList from '@/components/VirList'
 import useAxios from '@/hooks/useAxios'
 import Axios from 'axios'
 import React, { useEffect } from 'react'
+import { FixedSizeGrid } from 'react-window';
 import { useHistory } from 'react-router-dom'
+import AutoSizer from "react-virtualized-auto-sizer";
 import './index.scss'
 const List: React.FC = () => {
     const history = useHistory()
@@ -10,12 +11,31 @@ const List: React.FC = () => {
     useEffect(() => {
         doAxios()
     }, [doAxios])
-    const rowRenderer = (val: any) => <div key={val.icon_id} className='icon_item column_between'>
-        <i className={`${reponse && reponse.css_prefix_text}${val.font_class}`}></i>
-        <span>{val.name}</span>
-    </div>
+    const rowRenderer = ({ columnIndex, rowIndex, style }: any) => {
+        const val = reponse.glyphs[rowIndex*3+columnIndex]
+        return <div key={`${columnIndex}_${rowIndex}`} className={`icon_item column_between`} style={style}>
+            <i className={`${reponse && reponse.css_prefix_text}${val.font_class}`}></i>
+            <span>{val.name}</span>
+        </div>
+    }
+
     return <div onClick={() => history.push('/other')}>
-        {reponse && <VirList itemRender={rowRenderer} list={reponse.glyphs} itemH={100} wrapNum={3} wrapperClass="wrapperList" pageSize={25} />}
+        {reponse &&
+            <AutoSizer>
+                {({ height, width }) => {
+                    return <FixedSizeGrid
+                        height={height}
+                        width={width}
+                        columnCount={3}
+                        columnWidth={width / 3}
+                        rowCount={parseInt(`${reponse.glyphs.length / 3}`)}
+                        rowHeight={100}
+                    >
+                        {rowRenderer}
+                    </FixedSizeGrid>
+                }}
+            </AutoSizer>
+        }
     </div>
 }
 export default React.memo(List)
