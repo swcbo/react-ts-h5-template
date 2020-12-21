@@ -17,13 +17,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
     # - name: Cache node modules
     #   uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-build-${{ env.cache-name }}-
-          ${{ runner.OS }}-build-
-          ${{ runner.OS }}-
+    #   with:
+    #     path: node_modules
+    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    #     restore-keys: |
+    #       ${{ runner.OS }}-build-${{ env.cache-name }}-
+    #       ${{ runner.OS }}-build-
+    #       ${{ runner.OS }}-
     - name: Install dotenv
       run: npm install -g dotenv-cli
     - name: Install Packages
