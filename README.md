@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 16:35:21
+ * @LastEditTime: 2020-12-21 18:16:41
 -->
 # React-ts-h5-template
 ## 说明
@@ -12,6 +12,11 @@
 **该项目是基于React Hooks框架配合Typescript语言的H5端快速开发的模板项目,该项目适配屏幕使用的`postcss-px-to-viewport`直接写px自动转换为vw或者rem,项目也添加了路由切换动画,适配`chrome safari底部工具栏`**
 
 **项目持续迭代中,如果有疑问[提出 issues](https://github.com/q1104133609/react-ts-h5-template/issues/new)**
+
+## 预览地址
+<p>&lt;img src=&quot;http://pic15.photophoto.cn/20100615/0006019058815826_b.jpg&quot;  height=&quot;330&quot; width=&quot;495&quot;&gt;</p>
+![url](./public/demo.png)
+
 ## Project setup
 ```
 yarn install
@@ -125,3 +130,5 @@ react-ts-h5-template
 ```
 https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2119875
 ```
+
+

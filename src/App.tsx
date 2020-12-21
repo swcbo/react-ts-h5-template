@@ -23,7 +23,7 @@ const App = () => {
           }} />
         })
       }
-      <Router basename="/react-ts-h5-template">
+      <Router>
         <RouteRender />
         <TabBarView />
       </Router>
