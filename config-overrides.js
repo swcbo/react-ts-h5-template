@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 17:32:49
+ * @LastEditTime: 2020-12-21 17:44:30
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
@@ -70,7 +70,7 @@ const alter_config = () => (config) => {
 module.exports = override(
 	alter_config(),
 	useEslintRc('./package.json'),
-	setWebpackPublicPath(IS_PRODUCTION ? '/react-ts-h5-template/' : './'),
+	setWebpackPublicPath(IS_PRODUCTION ? '/' : './'),
 	addWebpackExternals(
 		IS_PRODUCTION
 			? {
