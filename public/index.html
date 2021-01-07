@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-18 11:33:44
+ * @LastEditTime: 2021-01-07 11:34:24
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,16 +39,19 @@
     <div id="root"></div>
     <div id="modal-root"></div>
   </body>
-  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js" defer></script>
-  <script defer>
-    if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-      }, false);
-    }
-    if(!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-    }
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <!-- 移动端取消点击延迟 -->
+  <script>
+    FastClick.prototype.focus = function (targetElement) {
+        let length;
+        if (targetElement.setSelectionRange && targetElement.type.indexOf('date') !== 0 && targetElement.type !== 'time' && targetElement.type !== 'month') {
+          length = targetElement.value.length;
+          targetElement.focus();
+          targetElement.setSelectionRange(length, length);
+        } else {
+          targetElement.focus();
+        }
+      };
   </script>
 </html>
 
