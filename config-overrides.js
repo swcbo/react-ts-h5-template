@@ -4,13 +4,14 @@
  * @Author: 小白
  * @Date: 2020-06-21 15:28:19
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 17:44:30
+ * @LastEditTime: 2021-01-26 21:23:43
  */
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const packageinfo = require('./package.json');
 const {
 	override,
 	addPostcssPlugins,
+	fixBabelImports,
 	addWebpackAlias,
 	addWebpackExternals,
 	setWebpackPublicPath,
@@ -100,9 +101,9 @@ module.exports = override(
 			replace: true,
 			exclude: /(\/|\\)(node_modules)(\/|\\)/
 		})
-	])
-	// fixBabelImports('import', {
-	// 	libraryName: 'antd-mobile',
-	// 	style: 'css'
-	// })
+	]),
+	fixBabelImports('import', {
+		libraryName: 'antd-mobile',
+		style: 'css'
+	})
 );

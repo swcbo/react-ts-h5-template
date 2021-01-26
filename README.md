@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2020-12-21 20:23:41
+ * @LastEditTime: 2021-01-26 21:26:05
 -->
 # React-ts-h5-template
 ## 说明
@@ -61,6 +61,7 @@ npm install -g dotenv-cli
 - [x] vir List(pull  loadmore)
 - [x] useModel
 - [x] custom hooks
+- [x] antd
 - [ ] ssr
 
 ## 项目目录
