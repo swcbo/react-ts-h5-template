@@ -1,0 +1,1 @@
+(this["webpackJsonpreact-ts-h5-template"]=this["webpackJsonpreact-ts-h5-template"]||[]).push([[0],{179:function(t,e,a){"use strict";a.r(e);var n=a(0),s=a.n(n);e.default=s.a.memo((function(){return s.a.createElement("div",null,"Detail")}))}}]);
