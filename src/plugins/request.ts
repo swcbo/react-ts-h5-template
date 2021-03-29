@@ -54,7 +54,7 @@ const baseRequest = (config: any): Promise<any> => {
 	config = {
 		...config,
 		headers: {
-			Authorization: `Beara ${getAuth()}`
+			Authorization: `Bearer ${getAuth()}`
 		},
 		url: `${process.env.REACT_APP_HTTPBASEURL}${config.url}`
 	};
