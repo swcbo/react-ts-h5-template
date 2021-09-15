@@ -1,0 +1,1 @@
+import{r as e,R as r}from"./react.ca74714e.js";import{u as o}from"./index.656bf5b6.js";var t=e.exports.memo((()=>{const e=o();return r.createElement("div",{onClick:()=>e.goBack(),style:{backgroundColor:"yellow"}},"Other1")}));export{t as default};
