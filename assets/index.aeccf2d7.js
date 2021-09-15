@@ -1,0 +1,1 @@
+import{r as a,R as r}from"./react.a0dba3fb.js";import{u as e}from"./index.d69381a1.js";import"./react-dom.f3ba314d.js";var o=a.exports.memo((()=>{const a=e();return r.createElement("div",{className:"tabbar_page",style:{backgroundColor:"blue"},onClick:()=>a.push("/other1")},"Search")}));export{o as default};
