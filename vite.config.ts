@@ -2,7 +2,7 @@
  * @Author: 筱白
  * @Date: 2021-07-28 14:14:23
  * @LastEditors: 小白
- * @LastEditTime: 2021-09-15 22:53:18
+ * @LastEditTime: 2021-09-16 00:22:12
  * @Description: 配置文件
  */
 import legacy from '@vitejs/plugin-legacy';
@@ -119,7 +119,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       rollupOptions: {
         output: {
           manualChunks: {
-            'react-dom': ['react-dom'],
             react: ['react'],
           },
         },
