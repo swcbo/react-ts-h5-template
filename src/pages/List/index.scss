@@ -1,0 +1,28 @@
+.icon_item {
+  width: calc(33.3%);
+  height: 200px;
+  background: white;
+  padding: 20px 0;
+  box-sizing: border-box;
+  color: #999;
+  border: 1px solid $background-color;
+
+  i {
+    font-size: 60px;
+  }
+
+  span {
+    font-style: 20px;
+    margin-top: 5px;
+    width: 160px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.wrapperList {
+  height: calc(#{$height-primary} - 90px - constant(safe-area-inset-bottom));
+  height: calc(#{$height-primary} - 90px - env(safe-area-inset-bottom));
+}

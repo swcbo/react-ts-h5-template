@@ -1,0 +1,204 @@
+.router-wrapper {
+  overflow: hidden;
+}
+
+/**
+ * 右侧淡入，右侧淡出
+ */
+.forward-from-right-enter {
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.forward-from-right-enter-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+.forward-from-right-exit {
+  z-index: 1;
+  opacity: 1;
+}
+
+.forward-from-right-exit-active {
+  z-index: 1;
+  opacity: 0.3;
+  transition: all 500ms;
+}
+
+.back-to-right-enter {
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.back-to-right-enter-active {
+  z-index: 1;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+.back-to-right-exit {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.back-to-right-exit-active {
+  z-index: 2;
+  opacity: 0;
+  transform: translate(100%);
+  transition: all 500ms;
+}
+
+/**
+ * 下方淡入，下方淡出
+ */
+.forward-from-bottom-enter {
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.forward-from-bottom-enter-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms;
+}
+
+.forward-from-bottom-exit {
+  z-index: 1;
+  opacity: 1;
+}
+
+.forward-from-bottom-exit-active {
+  z-index: 1;
+  opacity: 0.3;
+  transition: all 500ms;
+}
+
+.back-to-bottom-enter {
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.back-to-bottom-enter-active {
+  z-index: 1;
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.back-to-bottom-exit {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-bottom-exit-active {
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 500ms;
+}
+
+/**
+ * 左右滚动
+ */
+.forward-from-scroll-enter {
+  z-index: 2;
+  transform: translateX(100%);
+}
+
+.forward-from-scroll-enter-active {
+  z-index: 2;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+.forward-from-scroll-exit {
+  z-index: 1;
+  transform: translateX(0%);
+}
+
+.forward-from-scroll-exit-active {
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: all 500ms;
+}
+
+.back-to-scroll-enter {
+  z-index: 1;
+  transform: translateX(-100%);
+}
+
+.back-to-scroll-enter-active {
+  z-index: 1;
+  transition: all 500ms;
+  transform: translateX(0%);
+}
+
+.back-to-scroll-exit {
+  z-index: 2;
+  transform: translateX(0%);
+}
+
+.back-to-scroll-exit-active {
+  z-index: 2;
+  transform: translateX(100%);
+  transition: all 500ms;
+}
+
+/**
+ * only fade
+ */
+.forward-from-fade-enter {
+  z-index: 2;
+  opacity: 0;
+  // transform: translateZ(39px);
+}
+
+.forward-from-fade-enter-active {
+  z-index: 2;
+  opacity: 1;
+  // transform: translateZ(0);
+  transition: all 500ms;
+}
+
+.forward-from-fade-exit {
+  z-index: 1;
+  opacity: 1;
+}
+
+.forward-from-fade-exit-active {
+  z-index: 1;
+  opacity: 0.3;
+  transition: all 500ms;
+}
+
+.back-to-fade-enter {
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.back-to-fade-enter-active {
+  z-index: 1;
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.back-to-fade-exit {
+  z-index: 2;
+  opacity: 1;
+  // transform: translateZ(0);
+}
+
+.back-to-fade-exit-active {
+  z-index: 2;
+  opacity: 0;
+  // transform: translateZ(39px);
+  transition: all 500ms;
+}

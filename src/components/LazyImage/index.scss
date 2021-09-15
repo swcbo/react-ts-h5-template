@@ -1,0 +1,21 @@
+.image_Bg {
+  position: relative;
+
+  img,
+  .error_div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 26px;
+    color: #666;
+  }
+
+  .loading_bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}

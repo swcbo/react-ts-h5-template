@@ -1,0 +1,6 @@
+./eslintrc.js
+node_modules/
+**/*.spec.*
+*.html
+build/
+package.json
