@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: 小白
- * @Date: 2020-10-07 22:21:02
- * @LastEditors: 小白
- * @LastEditTime: 2021-09-15 22:38:56
- */
 import { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import routers from '../../routers';

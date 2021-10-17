@@ -1,26 +1,26 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: 小白
- * @Date: 2020-10-04 10:43:52
- * @LastEditors: 小白
- * @LastEditTime: 2021-09-15 22:16:36
- */
 import 'lib-flexible';
 import '@/assets/css/common.scss';
 import { render } from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { StrictMode } from 'react';
+import { GlobalProvider } from 'rmox';
 
 document
   .getElementsByTagName('body')[0]
-  .style.setProperty('--height-primary', `${window.innerHeight}px`);
+  .style.setProperty('--height-primary', `${window.outerHeight}px`);
 window.addEventListener('resize', () => {
   document
     .getElementsByTagName('body')[0]
-    .style.setProperty('--height-primary', `${window.innerHeight}px`);
+    .style.setProperty('--height-primary', `${window.outerHeight}px`);
 });
-console.log();
-render(<App />, document.getElementById('root'));
+render(
+  <StrictMode>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
+  </StrictMode>,
+  document.getElementById('root'),
+);
 
 serviceWorker.unregister();

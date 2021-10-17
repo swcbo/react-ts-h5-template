@@ -1,5 +1,6 @@
-import { ModelList } from '@/constant';
+import { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
+import { Key } from 'readline';
 
 /*
  * @Descripttion: 小白命名空间
@@ -7,16 +8,19 @@ import { RouteProps } from 'react-router-dom';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-18 09:44:04
+ * @LastEditTime: 2021-09-16 23:02:20
  */
 export namespace White {
   // route
+
+  // switch
+  export type SwitchType = 'right' | 'bottom' | 'scroll' | 'fade';
   export interface RouteConfig extends RouteProps {
     routes?: RouteConfig[]; // 子列表
     tabBars?: RouteTabBar[];
     redirect?: string;
     isTabIndex?: boolean;
-    sceneMode?: MySwitch.type;
+    sceneMode?: SwitchType;
     title?: string;
     path: string | string[];
     component?: ComponentClass<any> | FunctionComponent<any>;
@@ -34,6 +38,13 @@ export namespace White {
     duration: number;
     onClose?: () => void;
   }
+
+  export interface NotifiCationRef {
+    // add notice
+    addNotice: (notice: NoticeProps) => () => void;
+    // removeAll notice
+    removeAll: () => void;
+  }
   export interface NotifiCation extends NotifiCationRef {
     destroy: () => void;
   }
@@ -42,14 +53,6 @@ export namespace White {
     duration?: number;
   }
 
-  export interface NotifiCationRef {
-    // add notice
-    addNotice: (notice: NoticeProps) => () => void;
-    // removeAll notice
-    removeAll: () => void;
-  }
-  // switch
-  export type SwitchType = 'right' | 'bottom' | 'scroll' | 'fade';
   export interface AnimatedSwitchProps {
     children?: ReactNode;
     classNames: string;
@@ -65,7 +68,7 @@ export namespace White {
   export interface VirListProps {
     list: any[];
     itemH: number;
-    itemRender: (key: any, val: any) => JSX.Element;
+    itemRender: (key: any, val: any) => ReactNode;
     wrapNum?: number;
     loadMoreHieght?: number;
     height?: number;
@@ -74,16 +77,4 @@ export namespace White {
     refreshHeight?: number;
     pageSize?: number;
   }
-
-  // useModel
-  export type ModelKeys = keyof typeof ModelList;
-  export type Models = typeof ModelList;
-  export type ModelsReturnTypes<T> = ReturnType<Models[T]>;
-  export const useModel: <T extends ModelKeys>(
-    model: ModelKeys,
-  ) => ModelsReturnTypes<T>;
-  export const useModel: <T extends ModelKeys, U>(
-    model: T,
-    selector: (model: ModelsReturnTypes<T>) => U,
-  ) => U;
 }
