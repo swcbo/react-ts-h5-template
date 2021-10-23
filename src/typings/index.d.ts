@@ -1,6 +1,6 @@
 import { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 
 /*
  * @Descripttion: 小白命名空间
@@ -8,7 +8,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2021-10-23 09:05:21
+ * @LastEditTime: 2021-10-23 17:54:18
  */
 export namespace White {
   // route
@@ -54,9 +54,11 @@ export namespace White {
     duration?: number;
   }
 
-  export type AnimatedSwitchProps = Omit<TransitionProps, 'addEndListener'> & {
+  export type AnimatedSwitchProps = Omit<
+    CSSTransitionProps<any>,
+    'addEndListener'
+  > & {
     children?: ReactNode;
-    classNames: string;
     primaryKey: string | number | null;
     type?: SwitchType;
     backClassName?: string;
