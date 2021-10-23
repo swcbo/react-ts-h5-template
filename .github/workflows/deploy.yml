@@ -20,7 +20,7 @@ jobs:
     - name: Build page
       run: npm run build:prod
     - name: new 404.html
-      run: cd ./build/ && cp index.html 404.html CNAME && cd ..
+      run: cd ./build/ && cp index.html 404.html && cp CNAME CNAME && cd ..
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
