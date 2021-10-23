@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-09 21:27:14
  * @LastEditors: 小白
- * @LastEditTime: 2021-09-14 13:42:29
+ * @LastEditTime: 2021-10-23 00:43:20
  */
 import { White } from '@/typings';
 import {
@@ -80,14 +80,12 @@ const NotifiCation = forwardRef<White.NotifiCationRef, White.NotifiCationProps>(
     return (
       <TransitionGroup
         className="toast-notification column_center"
-        style={{ pointerEvents: !haveLoading ? 'none' : 'auto' }}
-      >
+        style={{ pointerEvents: !haveLoading ? 'none' : 'auto' }}>
         {notices.map((v) => (
           <CSSTransition
             key={v.key}
             classNames="toast-notice-wrapper notice"
-            timeout={transitionTime}
-          >
+            timeout={transitionTime}>
             <Notice {...v} />
           </CSSTransition>
         ))}

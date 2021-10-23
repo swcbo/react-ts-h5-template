@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: 小白
- * @Date: 2020-10-07 14:24:09
- * @LastEditors: 小白
- * @LastEditTime: 2021-09-14 21:08:17
- */
 import { White } from '@/typings';
 import { cloneElement, FC, memo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -20,15 +12,13 @@ const AnimatedSwitch: FC<White.AnimatedSwitchProps> = ({
 }) => {
   return (
     <TransitionGroup
-      childFactory={(child) => cloneElement(child, { classNames })}
-    >
+      childFactory={(child) => cloneElement(child, { classNames })}>
       <CSSTransition
         key={primaryKey}
         timeout={timeout}
         appear
         unmountOnExit
-        {...other}
-      >
+        {...other}>
         {children}
       </CSSTransition>
     </TransitionGroup>

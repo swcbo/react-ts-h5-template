@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: 小白
- * @Date: 2020-10-09 21:25:20
- * @LastEditors: 小白
- * @LastEditTime: 2021-09-14 21:17:52
- */
 import { White } from '@/typings';
 import { memo, VFC } from 'react';
 const icons = {

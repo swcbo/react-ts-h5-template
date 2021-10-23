@@ -4,10 +4,11 @@
  * @Author: 小白
  * @Date: 2020-10-06 12:22:47
  * @LastEditors: 小白
- * @LastEditTime: 2021-09-14 21:17:14
+ * @LastEditTime: 2021-10-23 14:48:58
  */
+import AnimatedSwitch from '@/components/AnimatedSwitch';
 import { White } from '@/typings';
-import { FC, Suspense, useMemo, useRef } from 'react';
+import { FC, Suspense, useEffect, useMemo, useRef } from 'react';
 import {
   Redirect,
   Route,
@@ -16,8 +17,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import routes, { TabBarList } from '.';
-import AnimatedSwitch from '../components/AnimatedSwitch';
-
+import '../components/AnimatedSwitch/index.scss';
 const generateRoute = ({
   redirect,
   routes,
@@ -82,43 +82,59 @@ const generateRoute = ({
 
 const RouteRender: FC = () => {
   const history = useHistory();
-  const oldLocation = useRef<string>('');
+  const oldMode = useRef<{
+    mode: White.SwitchType | undefined;
+    path?: string;
+    isTab?: boolean;
+  }>();
   const location = useLocation();
-  // check normal route
-  let routeSceneMode = routes.find(
+  const className = useRef('');
+  const routeSceneMode = routes.find(
     (v) => v.path === location.pathname,
   )?.sceneMode;
-  let classNames = '';
-  if (history.action === 'PUSH') {
-    classNames = `forward-from-${routeSceneMode ?? 'right'}`;
-  } else if (history.action === 'POP' && oldLocation.current) {
-    routeSceneMode = routes.find(
-      (v) => v.path === oldLocation.current,
-    )?.sceneMode;
-    classNames = `back-to-${routeSceneMode ?? 'right'}`;
-  }
-  // check tabBar route
-  const tabIndex = TabBarList.findIndex((v) => v.path === location.pathname);
-  if (tabIndex !== -1) {
-    const oldIndex = TabBarList.findIndex(
-      (v) => v.path === oldLocation.current,
-    );
-    if (oldIndex !== -1) {
-      classNames =
-        tabIndex > oldIndex
-          ? `forward-from-${TabBarList[tabIndex].sceneMode}`
-          : `back-to-${TabBarList[tabIndex].sceneMode}`;
+  const [activeIndex, oldIndex] = TabBarList.reduce<number[]>(
+    (pre, { path }, index) => {
+      if (path === location.pathname) {
+        pre[0] = index;
+      }
+      if (path === oldMode.current?.path) {
+        pre[1] = index;
+      }
+      return pre;
+    },
+    [-1, -1],
+  );
+  if (activeIndex !== -1 && oldIndex !== -1) {
+    className.current =
+      activeIndex > oldIndex
+        ? `forward-from-${TabBarList[activeIndex].sceneMode || 'right'}`
+        : `back-to-${TabBarList[oldIndex].sceneMode || 'right'}`;
+  } else {
+    if (history.action === 'PUSH') {
+      className.current = `forward-from-${routeSceneMode || 'right'}`;
+    } else if (history.action === 'POP') {
+      console.log('>>>>>))))))');
+      className.current = `back-to-${oldMode.current?.mode || 'right'}`;
     }
   }
-  oldLocation.current = location.pathname;
+
+  useEffect(() => {
+    oldMode.current = {
+      mode: routeSceneMode,
+      path: location.pathname,
+    };
+  }, [location, routeSceneMode]);
   const routesView = useMemo(() => {
     return routes.map((v) => generateRoute(v));
   }, []);
+
   return (
-    <AnimatedSwitch classNames={classNames} primaryKey={location.pathname}>
+    <AnimatedSwitch
+      classNames={className.current}
+      primaryKey={location.pathname}>
       <div className="fullPage">
         <Suspense fallback={<></>}>
-          <Switch location={location}> {routesView}</Switch>
+          <Switch location={location}>{routesView}</Switch>
         </Suspense>
       </div>
     </AnimatedSwitch>

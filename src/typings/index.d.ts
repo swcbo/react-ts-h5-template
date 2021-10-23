@@ -1,6 +1,6 @@
 import { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
-import { Key } from 'readline';
+import { TransitionProps } from 'react-transition-group/Transition';
 
 /*
  * @Descripttion: 小白命名空间
@@ -8,16 +8,20 @@ import { Key } from 'readline';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2021-09-16 23:02:20
+ * @LastEditTime: 2021-10-23 09:05:21
  */
 export namespace White {
   // route
 
   // switch
   export type SwitchType = 'right' | 'bottom' | 'scroll' | 'fade';
+  type TabBarType = {
+    icon: string;
+    title: string;
+  };
   export interface RouteConfig extends RouteProps {
     routes?: RouteConfig[]; // 子列表
-    tabBars?: RouteTabBar[];
+    tabBars?: (RouteConfig & TabBarType)[];
     redirect?: string;
     isTabIndex?: boolean;
     sceneMode?: SwitchType;
@@ -25,11 +29,8 @@ export namespace White {
     path: string | string[];
     component?: ComponentClass<any> | FunctionComponent<any>;
   }
+  export type RouteTabBar = RouteConfig & TabBarType;
 
-  export type RouteTabBar = RouteConfig & {
-    icon: string;
-    title: string;
-  };
   // notice
   export interface NoticeProps {
     key?: string;
@@ -53,17 +54,14 @@ export namespace White {
     duration?: number;
   }
 
-  export interface AnimatedSwitchProps {
+  export type AnimatedSwitchProps = Omit<TransitionProps, 'addEndListener'> & {
     children?: ReactNode;
     classNames: string;
-    primaryKey: Key | null;
-    timeout?: number;
+    primaryKey: string | number | null;
     type?: SwitchType;
     backClassName?: string;
     forwardClassName?: string;
-    mountOnEnter?: boolean;
-    unmountOnExit?: boolean;
-  }
+  };
 
   export interface VirListProps {
     list: any[];
