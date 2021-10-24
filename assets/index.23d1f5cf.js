@@ -1,1 +1,0 @@
-import{r as a,R as e}from"./react.ca74714e.js";import{u as r}from"./index.daacc2ab.js";var o=a.exports.memo((()=>{const a=r();return e.createElement("div",{className:"tabbar_page",style:{backgroundColor:"blue"},onClick:()=>a.push("/other1")},"Search")}));export{o as default};
