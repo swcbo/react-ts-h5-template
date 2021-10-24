@@ -1,6 +1,6 @@
 import AnimatedSwitch from '@/components/AnimatedSwitch';
 import { White } from '@/typings';
-import { Suspense, useMemo } from 'react';
+import { Suspense, useLayoutEffect, useMemo } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import routes from './index';
 import useSwitch from './useSwitch';
@@ -74,6 +74,9 @@ const RouteRender = () => {
   const { classNames, primaryKey, location } = useSwitch();
   const routesView = useMemo(() => {
     return routes.map((v) => generateRoute(v));
+  }, []);
+  useLayoutEffect(() => {
+    document.removeEventListener('click', handler, true);
   }, []);
   return (
     <AnimatedSwitch
