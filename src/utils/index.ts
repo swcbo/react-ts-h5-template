@@ -4,14 +4,14 @@
  * @Author: 小白
  * @Date: 2020-10-04 13:11:40
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-07 21:39:19
+ * @LastEditTime: 2021-10-24 15:36:36
  */
 export const setAuth = (auth: string) => {
-  localStorage.setItem('auth', auth);
+  window.localStorage.setItem('auth', auth);
 };
 
 export const getAuth = () => {
-  const auth = localStorage.getItem('auth');
+  const auth = window.localStorage.getItem('auth');
   return auth || '';
 };
 export const getCode = () => {
