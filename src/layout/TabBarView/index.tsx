@@ -1,26 +1,28 @@
 import { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, matchPath } from 'react-router-dom';
 import routers from '../../routers';
 import styles from './index.module.scss';
 const TabBarView: FC = () => {
-  const history = useHistory();
+  const nav = useNavigate();
   const location = useLocation();
   const tabBars = useRef(routers.find((v) => v.tabBars)?.tabBars);
   const [state, setstate] = useState(
-    tabBars.current?.findIndex((v) => v.path === history.location.pathname),
+    tabBars.current?.findIndex((v) => v.path === window.location.pathname),
   );
   const OnTabClick = useCallback(
     (index, path) => {
       setstate(index);
-      history.push(path);
+      nav(path);
     },
-    [history],
+    [nav],
   );
   useEffect(() => {
-    setstate(tabBars.current?.findIndex((v) => v.path === location.pathname));
+    setstate(
+      tabBars.current?.findIndex((v) => matchPath(v.path, location.pathname)),
+    );
   }, [location]);
   const isTabBar =
-    tabBars.current?.findIndex((v) => v.path === history.location.pathname) !==
+    tabBars.current?.findIndex((v) => matchPath(v.path, location.pathname)) !==
     -1;
   return (
     <div

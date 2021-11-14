@@ -107,7 +107,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // 构建后是否生成 source map 文件
       sourcemap: false,
       // 设置为 false 可以禁用最小化混淆，或是用来指定使用哪种混淆器 boolean | 'terser' | 'esbuild'
-      minify: !isBuild ? 'esbuild' : 'terser',
+      minify: 'terser',
       // chunk 大小警告的限制
       chunkSizeWarningLimit: 500,
       // 启用/禁用 brotli 压缩大小报告

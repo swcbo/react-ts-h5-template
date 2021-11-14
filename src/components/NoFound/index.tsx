@@ -1,18 +1,18 @@
 import { memo } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import './index.scss';
+import image from '@images/common/404.png';
 const NoFound = () => {
-  const history = useHistory();
+  const nav = useNavigate();
   return (
     <div className="column_center fullPage">
-      <img src={require('@images/common/404.png')} alt="" />
+      <img src={image} alt="" />
       <p>Sorry,您访问的页面丢了~</p>
       <div
         className="back_btn"
         onClick={() => {
-          history.replace('/');
-        }}
-      >
+          nav('/', { replace: true });
+        }}>
         返回首页
       </div>
     </div>

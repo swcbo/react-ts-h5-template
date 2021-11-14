@@ -8,7 +8,7 @@ import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
  * @Author: 小白
  * @Date: 2020-10-10 20:50:06
  * @LastEditors: 小白
- * @LastEditTime: 2021-10-23 17:54:18
+ * @LastEditTime: 2021-11-13 13:17:13
  */
 export namespace White {
   // route
@@ -22,12 +22,11 @@ export namespace White {
   export interface RouteConfig extends RouteProps {
     routes?: RouteConfig[]; // 子列表
     tabBars?: (RouteConfig & TabBarType)[];
-    redirect?: string;
     isTabIndex?: boolean;
     sceneMode?: SwitchType;
     title?: string;
-    path: string | string[];
-    component?: ComponentClass<any> | FunctionComponent<any>;
+    path: string;
+    component: ComponentClass<any> | FunctionComponent<any>;
   }
   export type RouteTabBar = RouteConfig & TabBarType;
 

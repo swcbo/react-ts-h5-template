@@ -1,7 +1,11 @@
+import KeepAlive from '@/components/KeepAlive';
+import { FC, memo } from 'react';
 import './index.scss';
-const Index: React.FC<{
-  children?: React.ReactNode;
-}> = ({ children }) => {
-  return <div className="tabbar_page">{children}</div>;
+const Index: FC = () => {
+  return (
+    <div className="tabbar_page">
+      <KeepAlive />
+    </div>
+  );
 };
-export default React.memo(Index);
+export default memo(Index);

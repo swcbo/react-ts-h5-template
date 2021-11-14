@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-05 22:06:34
  * @LastEditors: 小白
- * @LastEditTime: 2021-10-23 14:22:08
+ * @LastEditTime: 2021-11-13 14:33:41
  */
 import { White } from '@/typings';
 import { lazy } from 'react';
@@ -28,75 +28,60 @@ const Other1 = lazy(
 const NoFound = lazy(
   () => import('../components/NoFound' /* webpackChunkName: "NoFound" */),
 );
-const commonRoutes: White.RouteConfig[] = [
-  {
-    path: '/nofound',
-    component: NoFound,
-  },
-  {
-    path: '/',
-    redirect: '/home/index',
-  },
-  {
-    path: '/*',
-    redirect: '/nofound',
-  },
-];
 export const TabBarList: White.RouteTabBar[] = [
   {
-    path: '/home/index',
+    path: '/',
     component: Home,
     icon: 'white-home1',
     sceneMode: 'scroll',
     title: '首页',
   },
   {
-    path: '/home/detail',
+    path: 'detail',
     component: Detail,
     icon: 'white-tradingdata',
     sceneMode: 'scroll',
     title: '详情',
   },
   {
-    path: '/home/list',
+    path: 'list',
     component: List,
     icon: 'white-order',
     sceneMode: 'scroll',
     title: '统计',
   },
   {
-    path: '/home/search',
+    path: 'search',
     component: Search,
     icon: 'white-account',
     sceneMode: 'scroll',
     title: '我的',
   },
 ];
+
 const routes: White.RouteConfig[] = [
   {
-    path: ['/home'],
+    path: '/',
     component: Index,
-    redirect: '/home/index',
     tabBars: TabBarList,
   },
   {
-    path: '/other',
+    path: 'other',
     component: Other,
   },
   {
-    path: '/other1',
+    path: 'other1',
     sceneMode: 'bottom',
     component: Other1,
   },
   {
-    path: '/dcotorDetail',
+    path: 'dcotorDetail',
     component: Detail,
   },
-
   {
-    path: '/list',
-    component: List,
+    path: '*',
+    component: NoFound,
   },
 ];
 
-export default [...routes, ...commonRoutes];
+export default [...routes];

@@ -13,7 +13,7 @@
 .forward-from-right-enter-active {
   z-index: 2;
   transform: translate3d(0, 0, 0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .forward-from-right-enter-done {
@@ -28,7 +28,7 @@
 .forward-from-right-exit-active {
   z-index: 1;
   transform: translate3d(-30%, 0, 0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .forward-from-right-exit-done {
@@ -43,7 +43,7 @@
 .back-to-right-enter-active {
   z-index: 1;
   transform: translate3d(0%, 0, 0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-right-enter-done {
@@ -58,7 +58,7 @@
 .back-to-right-exit-active {
   z-index: 2;
   transform: translate3d(100%, 0, 0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-right-exit-done {
@@ -79,7 +79,7 @@
   z-index: 2;
   opacity: 1;
   transform: translateY(0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .forward-from-bottom-exit {
@@ -90,7 +90,7 @@
 .forward-from-bottom-exit-active {
   z-index: 1;
   opacity: 0.3;
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-bottom-enter {
@@ -101,7 +101,7 @@
 .back-to-bottom-enter-active {
   z-index: 1;
   opacity: 1;
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-bottom-exit {
@@ -114,7 +114,7 @@
   z-index: 2;
   opacity: 0;
   transform: translateY(100%);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 /**
@@ -128,7 +128,7 @@
 .forward-from-scroll-enter-active {
   z-index: 2;
   transform: translateX(0);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .forward-from-scroll-exit {
@@ -139,7 +139,7 @@
 .forward-from-scroll-exit-active {
   z-index: 1;
   transform: translateX(-100%);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-scroll-enter {
@@ -149,7 +149,7 @@
 
 .back-to-scroll-enter-active {
   z-index: 1;
-  transition: all 300ms;
+  transition: all 500ms;
   transform: translateX(0%);
 }
 
@@ -161,7 +161,7 @@
 .back-to-scroll-exit-active {
   z-index: 2;
   transform: translateX(100%);
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 /**
@@ -175,7 +175,7 @@
 .forward-from-fade-enter-active {
   z-index: 2;
   opacity: 1;
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .forward-from-fade-exit {
@@ -186,7 +186,7 @@
 .forward-from-fade-exit-active {
   z-index: 1;
   opacity: 0.3;
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-fade-enter {
@@ -197,7 +197,7 @@
 .back-to-fade-enter-active {
   z-index: 1;
   opacity: 1;
-  transition: all 300ms;
+  transition: all 500ms;
 }
 
 .back-to-fade-exit {
@@ -208,5 +208,5 @@
 .back-to-fade-exit-active {
   z-index: 2;
   opacity: 0;
-  transition: all 300ms;
+  transition: all 500ms;
 }

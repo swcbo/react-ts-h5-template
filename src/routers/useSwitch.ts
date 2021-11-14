@@ -1,10 +1,10 @@
 import { White } from '@/typings';
 import { useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigationType, matchPath } from 'react-router-dom';
 import routes, { TabBarList } from './index';
 
 const useSwitch = () => {
-  const history = useHistory();
+  const action = useNavigationType();
   const oldMode = useRef<{
     mode: White.SwitchType | undefined;
     path?: string;
@@ -12,15 +12,15 @@ const useSwitch = () => {
   }>();
   const location = useLocation();
   const className = useRef('');
-  const routeSceneMode = routes.find(
-    (v) => v.path === location.pathname,
+  const routeSceneMode = routes.find((v) =>
+    matchPath(v.path, location.pathname),
   )?.sceneMode;
   const [activeIndex, oldIndex] = TabBarList.reduce(
     (pre, { path }, index) => {
-      if (path === location.pathname) {
+      if (matchPath(path, location.pathname)) {
         pre[0] = index;
       }
-      if (path === oldMode.current?.path) {
+      if (matchPath(path, oldMode.current?.path || '')) {
         pre[1] = index;
       }
       return pre;
@@ -33,9 +33,9 @@ const useSwitch = () => {
         ? `forward-from-${TabBarList[activeIndex].sceneMode || 'right'}`
         : `back-to-${TabBarList[oldIndex].sceneMode || 'right'}`;
   } else {
-    if (history.action === 'PUSH') {
+    if (action === 'PUSH') {
       className.current = `forward-from-${routeSceneMode || 'right'}`;
-    } else if (history.action === 'POP') {
+    } else if (action === 'POP') {
       className.current = `back-to-${oldMode.current?.mode || 'right'}`;
     }
   }
