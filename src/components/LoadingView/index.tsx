@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import './index.scss';
+import './index.less';
 export interface LoadingViewProps {
   className?: string;
   style?: string;
@@ -18,12 +18,10 @@ const LoadingView: FC<LoadingViewProps> = ({
     <div
       className={`column_center fullBody ${
         className ?? (isPage && 'page_loading_body')
-      }`}
-    >
+      }`}>
       <div
         className="la-square-jelly-box"
-        style={{ height: height ?? 64, width: width ?? 64 }}
-      >
+        style={{ height: height ?? 64, width: width ?? 64 }}>
         <div />
         <div />
       </div>

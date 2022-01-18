@@ -1,72 +1,42 @@
-/*
- * @Author: 筱白
- * @Date: 2021-07-28 14:14:23
- * @LastEditors: 小白
- * @LastEditTime: 2021-09-16 00:22:12
- * @Description: 配置文件
- */
-import legacy from '@vitejs/plugin-legacy';
-import type { ConfigEnv, UserConfig } from 'vite';
+import proxy from './config/proxy';
 import { resolve } from 'path';
+import type { ConfigEnv, UserConfig } from 'vite';
 import { loadEnv } from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
-import { visualizer } from 'rollup-plugin-visualizer';
-import viteCompression from 'vite-plugin-compression';
+import { VITE_DROP_CONSOLE, VITE_BASE_PATH } from './config/constant';
+import { createVitePlugins } from './config/plugins';
+import { themeVariables } from './config/theme';
+
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
   const root = process.cwd();
-  const COMPRESS_GZIP = false;
-  const ANALYZE = false;
   const env = loadEnv(mode, root);
   const { VITE_PORT, VITE_HTTP_API } = env;
 
   return {
-    // 项目根目录
     root: process.cwd(),
-    // 静态资源服务的文件夹
     publicDir: 'public',
-    // 项目部署的基础路径
-    base: '/',
-    esbuild: {
-      jsxInject: `import React from 'react'`,
-    },
-    plugins: [
-      // reactRefresh
-      reactRefresh(),
-      // legacy
-      mode === 'legacy' &&
-        legacy({
-          targets: ['ie >= 11'],
-          additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-        }),
-      // ANALYZE
-      ANALYZE &&
-        visualizer({
-          filename: './node_modules/.cache/visualizer/stats.html',
-          open: true,
-          gzipSize: true,
-          brotliSize: true,
-        }),
-      // COMPRESS_GZIP
-      COMPRESS_GZIP && isBuild && viteCompression({ deleteOriginFile: false }),
-    ],
+    base: VITE_BASE_PATH,
+    plugins: createVitePlugins(mode, isBuild),
     css: {
+      modules: {
+        generateScopedName: '[name]__[local]___[hash:base64:5]',
+        hashPrefix: 'prefix',
+      },
       preprocessorOptions: {
-        scss: {
-          additionalData: '@import "./src/assets/css/variables.scss";',
+        less: {
+          javascriptEnabled: true,
+          modifyVars: themeVariables,
         },
       },
     },
     resolve: {
-      // 别名
       alias: {
         '@': `${resolve(__dirname, 'src')}`,
-        '@images': `${resolve(__dirname, 'src/assets/images')}`,
       },
       // 解析package.json中的字段
-      mainFields: ['module', 'jsnext:main', 'jsnext'],
+      // mainFields: ['module', 'jsnext:main', 'jsnext'],
       // 导入时想要省略的扩展名列表
-      extensions: ['.less', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
+      // extensions: ['.less', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     },
     json: {
       // 是否支持从 .json 文件中进行按名导入
@@ -81,13 +51,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       open: true,
       host: '0.0.0.0',
-      port: Number(VITE_PORT),
-      proxy: {
-        '/api': {
-          target: VITE_HTTP_API,
-          changeOrigin: true,
-        },
-      },
+      port: parseInt(VITE_PORT),
+      proxy: proxy(VITE_HTTP_API),
     },
     // optimizeDeps: {
     //   include: ['moment/dist/locale/zh-cn'],
@@ -120,6 +85,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         output: {
           manualChunks: {
             react: ['react'],
+            'antd-mobile': ['antd-mobile'],
           },
         },
       },
@@ -127,7 +93,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       terserOptions: {
         compress: {
           keep_infinity: true,
-          drop_console: isBuild,
+          drop_console: VITE_DROP_CONSOLE,
         },
       },
     },

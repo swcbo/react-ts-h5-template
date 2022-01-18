@@ -1,7 +1,7 @@
 import { White } from '@/typings';
 import { cloneElement, FC, memo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import './index.scss';
+import './index.less';
 
 const AnimatedSwitch: FC<White.AnimatedSwitchProps> = ({
   children,

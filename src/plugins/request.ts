@@ -1,4 +1,4 @@
-import Toast from '@/layout/Toast';
+import { Toast } from 'antd-mobile';
 import axios, { AxiosRequestConfig } from 'axios';
 /*
  * @Descripttion:
@@ -6,7 +6,7 @@ import axios, { AxiosRequestConfig } from 'axios';
  * @Author: 小白
  * @Date: 2020-10-04 13:11:29
  * @LastEditors: 小白
- * @LastEditTime: 2020-10-10 22:39:02
+ * @LastEditTime: 2022-01-18 21:45:04
  */
 import { getAuth, setAuth } from './../utils/index';
 
@@ -29,25 +29,26 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (response: any) => {
     if (response.status !== 200) {
-      response.data.message && Toast.fail(response.data.message);
+      response.data.message &&
+        Toast.show({ icon: 'fail', content: response.data.message });
       return Promise.reject(response);
     }
     return Promise.resolve(response.data.data);
   },
   (error: AxiosErrorInterface) => {
     if (~`${error.message}`.indexOf('timeout')) {
-      Toast.fail('网络超时');
+      Toast.show({ icon: 'fail', content: '网络超时' });
     }
     error.response &&
       error.response.data.message &&
-      Toast.fail(error.response.data.message);
+      Toast.show({ icon: 'fail', content: error.response.data.message });
     if (error.response && error.response.status === 401) {
       setAuth('');
       window.location.assign(`${window.location.origin}/login`);
     } else {
       error.response &&
         error.response.statusText &&
-        Toast.fail(error.response.statusText);
+        Toast.show({ icon: 'fail', content: error.response.data.message });
     }
 
     return Promise.reject(error);

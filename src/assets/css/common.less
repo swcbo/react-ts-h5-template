@@ -61,69 +61,15 @@ i {
 }
 
 .v_line {
-  background: $line-color;
+  background: @line-color;
   width: 1;
   height: 100%;
 }
 
 .h_line {
-  background: $line-color;
+  background: @line-color;
   height: 1;
   width: 100%;
-}
-
-@for $i from 1 to 100 {
-  .mF-#{$i} {
-    font-size: 1px*$i;
-  }
-
-  .mT-#{$i} {
-    margin-top: 1px*$i;
-  }
-
-  .mB-#{$i} {
-    margin-bottom: 1px*$i;
-  }
-
-  .mR-#{$i} {
-    margin-right: 1px*$i;
-  }
-
-  .mL-#{$i} {
-    margin-left: 1px*$i;
-  }
-
-  .mV-#{$i} {
-    margin: 1px*$i 0;
-  }
-
-  .mH-#{$i} {
-    margin: 0 1px*$i;
-  }
-
-  .pV-#{$i} {
-    padding: 1px*$i 0;
-  }
-
-  .pH-#{$i} {
-    padding: 0 1px*$i;
-  }
-
-  .pR-#{$i} {
-    padding-right: 1px*$i;
-  }
-
-  .pT-#{$i} {
-    padding-top: 1px*$i;
-  }
-
-  .pB-#{$i} {
-    padding-bottom: 1px*$i;
-  }
-
-  .pL-#{$i} {
-    padding-left: 1px*$i;
-  }
 }
 
 .tabbar {
@@ -167,9 +113,9 @@ i {
   position: fixed;
   left: 0;
   top: 0;
-  height: calc(#{ $height-primary});
+  height: calc(@height-primary);
   width: 100vw;
-  background: $background-color;
+  background: @background-color;
   z-index: 1;
 }
 

@@ -1,10 +1,10 @@
-import KeepAlive from '@/components/KeepAlive';
 import { FC, memo } from 'react';
-import './index.scss';
+import { Outlet } from 'react-router-dom';
+import './index.less';
 const Index: FC = () => {
   return (
     <div className="tabbar_page">
-      <KeepAlive />
+      <Outlet />
     </div>
   );
 };

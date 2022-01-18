@@ -1,12 +1,12 @@
 module.exports = {
-  extends: ['plugin:react/recommended', 'standard', 'prettier',"eslint:recommended"],
+  extends: ['plugin:react/recommended', 'standard', 'prettier', "eslint:recommended"],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
@@ -20,36 +20,36 @@ module.exports = {
     'promise/param-names': 'off',
     'react/jsx-boolean-value': 'off',
     'react/jsx-closing-bracket-location': [
-        'error',
-        {
-            nonEmpty: false,
-            selfClosing: 'line-aligned'
-        }
+      'error',
+      {
+        nonEmpty: false,
+        selfClosing: 'line-aligned'
+      }
     ],
     'react/jsx-curly-spacing': [
-        'error',
-        {
-            when: 'never',
-            attributes: {
-                allowMultiline: true
-            },
-            children: true,
-            spacing: {
-                objectLiterals: 'never'
-            }
+      'error',
+      {
+        when: 'never',
+        attributes: {
+          allowMultiline: true
+        },
+        children: true,
+        spacing: {
+          objectLiterals: 'never'
         }
+      }
     ],
-      'react/jsx-equals-spacing': [
-        'error',
-        'never'
+    'react/jsx-equals-spacing': [
+      'error',
+      'never'
     ],
     'react/jsx-tag-spacing': [
-        'error',
-        {
-            closingSlash: 'never',
-            beforeSelfClosing: 'always',
-            afterOpening: 'never'
-        }
+      'error',
+      {
+        closingSlash: 'never',
+        beforeSelfClosing: 'always',
+        afterOpening: 'never'
+      }
     ],
   },
 };

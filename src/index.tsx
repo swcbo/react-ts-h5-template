@@ -1,7 +1,8 @@
 import 'lib-flexible';
-import '@/assets/css/common.scss';
 import { render } from 'react-dom';
+import 'antd-mobile/es/global';
 import App from './App';
+import '@/assets/css/common.less';
 import * as serviceWorker from './serviceWorker';
 import { StrictMode } from 'react';
 import { GlobalProvider } from 'rmox';

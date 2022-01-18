@@ -1,7 +1,7 @@
 import { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation, matchPath } from 'react-router-dom';
 import routers from '../../routers';
-import styles from './index.module.scss';
+import styles from './index.module.less';
 const TabBarView: FC = () => {
   const nav = useNavigate();
   const location = useLocation();
