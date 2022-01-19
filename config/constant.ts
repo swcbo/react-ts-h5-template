@@ -11,4 +11,4 @@ export const VITE_APP_COMPRESS_GZIP_DELETE_FILE = false;
 // 去除 console
 export const VITE_DROP_CONSOLE = true;
 // 开启兼容
-export const VITE_APP_LEGACY = true;
+export const VITE_APP_LEGACY = false;
