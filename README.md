@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2022-01-22 10:46:34
+ * @LastEditTime: 2022-01-22 19:32:58
 -->
 
 # React-ts-h5-template
@@ -69,7 +69,7 @@ npm install -g dotenv-cli
 - [x] rmox
 - [x] custom hooks
 - [x] antd
-- [ ] ssr
+- [x] tailwind
 
 ## 项目目录
 

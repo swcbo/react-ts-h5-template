@@ -26,14 +26,14 @@ const TabBarView: FC = () => {
     -1;
   return (
     <div
-      className={`${styles.tabBar} row_center ${
+      className={`${styles.tabBar} flex  justify-center items-center ${
         isTabBar ? styles.in_page : styles.out_page
       }`}>
       {tabBars.current?.map(({ title, path, icon }, index) => (
         <div
-          className={`column_center ${styles.tabBarItem} ${
-            state === index ? styles.chooseed : ''
-          }`}
+          className={`flex flex-col justify-center items-center ${
+            styles.tabBarItem
+          } ${state === index ? styles.chooseed : ''}`}
           key={title}
           onClick={() => {
             OnTabClick(index, path);
