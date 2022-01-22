@@ -1,6 +1,5 @@
 import 'lib-flexible';
 import { render } from 'react-dom';
-import 'antd-mobile/es/global';
 import App from './App';
 import '@/assets/css/common.less';
 import * as serviceWorker from './serviceWorker';
