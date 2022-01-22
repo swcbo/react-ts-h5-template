@@ -11,6 +11,7 @@ import {
 } from '../constant';
 import styleImport from './styleImport';
 import visualizerPlugin from './visualizer';
+import windiCSS from './windicss';
 
 export const createVitePlugins = (viteEnv: string, isBuild: boolean) => {
   const vitePlugins: (PluginOption | PluginOption[])[] = [react()];
@@ -18,6 +19,8 @@ export const createVitePlugins = (viteEnv: string, isBuild: boolean) => {
   VITE_APP_LEGACY && isBuild && vitePlugins.push(legacy());
   //  style
   vitePlugins.push(styleImport());
+  // windicss
+  vitePlugins.push(windiCSS());
   // visualizer
   VITE_APP_ANALYZE && vitePlugins.push(visualizerPlugin());
   if (isBuild) {

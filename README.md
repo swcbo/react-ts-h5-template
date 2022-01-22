@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 10:43:52
  * @LastEditors: 小白
- * @LastEditTime: 2021-11-14 17:54:59
+ * @LastEditTime: 2022-01-22 10:46:34
 -->
 
 # React-ts-h5-template
@@ -64,12 +64,9 @@ npm install -g dotenv-cli
 - [x] typescript
 - [x] react-route6
 - [x] postcss-px-to-viewport
-- [x] custom toast
-- [x] route-lazy
 - [x] react-router(route add animotion)
 - [x] cdn
-- [x] vir List(pull loadmore)
-- [x] useModel
+- [x] rmox
 - [x] custom hooks
 - [x] antd
 - [ ] ssr
