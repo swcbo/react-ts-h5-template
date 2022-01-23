@@ -1,7 +1,8 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   purgeCSS: {
-    enabled: false,
+    whitelistPatterns: [/am-.+$/],
+    whitelistPatternsChildren: [/am-.+$/],
   },
   theme: {
     extend: {},
