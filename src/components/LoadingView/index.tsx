@@ -16,7 +16,7 @@ const LoadingView: FC<LoadingViewProps> = ({
 }) => {
   return (
     <div
-      className={`column_center fullBody ${
+      className={`flex flex-col justify-center items-center fullBody ${
         className ?? (isPage && 'page_loading_body')
       }`}>
       <div

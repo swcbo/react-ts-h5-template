@@ -13,7 +13,13 @@ const AnimatedSwitch: FC<White.AnimatedSwitchProps> = ({
   return (
     <TransitionGroup
       childFactory={(child) => cloneElement(child, { classNames })}>
-      <CSSTransition key={primaryKey} timeout={timeout} appear {...other}>
+      <CSSTransition
+        key={primaryKey}
+        timeout={timeout}
+        appear
+        mountOnEnter
+        unmountOnExit={false}
+        {...other}>
         {children}
       </CSSTransition>
     </TransitionGroup>

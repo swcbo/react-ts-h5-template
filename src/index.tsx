@@ -8,11 +8,11 @@ import { GlobalProvider } from 'rmox';
 
 document
   .getElementsByTagName('body')[0]
-  .style.setProperty('--height-primary', `${window.outerHeight}px`);
+  .style.setProperty('--height-primary', `${window.innerHeight}px`);
 window.addEventListener('resize', () => {
   document
     .getElementsByTagName('body')[0]
-    .style.setProperty('--height-primary', `${window.outerHeight}px`);
+    .style.setProperty('--height-primary', `${window.innerHeight}px`);
 });
 render(
   <StrictMode>

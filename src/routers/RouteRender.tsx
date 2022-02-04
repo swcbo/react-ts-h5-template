@@ -1,4 +1,5 @@
 import AnimatedSwitch from '@/components/AnimatedSwitch';
+import LoadingView from '@/components/LoadingView';
 import { White } from '@/typings';
 import { Suspense, useLayoutEffect, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -45,7 +46,7 @@ const RouteRender = () => {
         }
       }}>
       <div className="fullPage">
-        <Suspense fallback={<></>}>
+        <Suspense fallback={<LoadingView />}>
           <Routes location={location}>{routesView}</Routes>
         </Suspense>
       </div>
