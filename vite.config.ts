@@ -34,7 +34,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         '@': `${resolve(__dirname, 'src')}`,
       },
       // 解析package.json中的字段
-      // mainFields: ['module', 'jsnext:main', 'jsnext'],
+      mainFields: ['module', 'jsnext:main', 'jsnext'],
       // 导入时想要省略的扩展名列表
       // extensions: ['.less', '.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
     },
@@ -59,27 +59,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     //   exclude: ['moment/dist/locale/*'],
     // },
     build: {
-      // 浏览器兼容性  "esnext"|"modules"
       target: 'modules',
-      // 输出路径
       outDir: 'build',
-      // 生成静态资源的存放路径
       assetsDir: 'assets',
-      // 启用/禁用 CSS 代码拆分
       cssCodeSplit: true,
-      // 小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项
       assetsInlineLimit: 4096,
-      // 构建后是否生成 source map 文件
-      sourcemap: false,
-      // 设置为 false 可以禁用最小化混淆，或是用来指定使用哪种混淆器 boolean | 'terser' | 'esbuild'
+      sourcemap: true,
       minify: 'terser',
-      // chunk 大小警告的限制
       chunkSizeWarningLimit: 500,
-      // 启用/禁用 brotli 压缩大小报告
       brotliSize: true,
-      // 默认情况下，若 outDir 在 root 目录下，则 Vite 会在构建时清空该目录。
       emptyOutDir: true,
-      // 当设置为 true，构建后将会生成 manifest.json 文件
       manifest: false,
       rollupOptions: {
         output: {

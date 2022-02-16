@@ -13,11 +13,11 @@
     "serve": "vite preview",
     "precommit": "lint-staged",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
-    "prettier": "prettier -c --write 'src/**/*'",
+    "prettier": "prettier -c --write 'src/*'",
     "lint": "npm run lint:style && npm run lint:prettier",
     "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern --quiet --fix ./src",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
-    "lint:prettier": "prettier --check 'src/**/*' --end-of-line auto",
+    "lint:prettier": "prettier --check 'src/*' --end-of-line auto",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx "
@@ -28,13 +28,11 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,tsx,ts,json}": [
-      "npm run lint:fix",
-      "git add --force"
+    "*.{jsx,less,md,json}": [
+      "prettier --write"
     ],
-    "**/*.{less}": [
-      "npm run lint:style",
-      "git add --force"
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
     ]
   },
   "browserslist": [
@@ -50,7 +48,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
     "react-transition-group": "^4.4.2",
-    "rmox": "^1.0.4"
+    "rmox": "^1.0.6"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.0",

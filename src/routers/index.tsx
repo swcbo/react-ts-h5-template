@@ -4,29 +4,19 @@
  * @Author: 小白
  * @Date: 2020-10-05 22:06:34
  * @LastEditors: 小白
- * @LastEditTime: 2021-11-13 14:33:41
+ * @LastEditTime: 2022-02-16 22:41:41
  */
 import { White } from '@/typings';
 import { lazy } from 'react';
-const Search = lazy(
-  () => import('../pages/Search' /* webpackChunkName: "Search" */),
-);
-const List = lazy(() => import('../pages/List' /* webpackChunkName: `List` */));
-const Home = lazy(() => import('../pages/Home' /* webpackChunkName: "Home" */));
-const Detail = lazy(
-  () => import('../pages/Detail' /* webpackChunkName: "Detail" */),
-);
-const Index = lazy(
-  () => import('../pages/Index' /* webpackChunkName: "Index" */),
-);
-const Other = lazy(
-  () => import('../pages/Other' /* webpackChunkName: "Other" */),
-);
-const Other1 = lazy(
-  () => import('../pages/Other1' /* webpackChunkName: "Other1" */),
-);
+const Search = lazy(() => import(/* chunkName: "Search" */ '@/pages/Search'));
+const List = lazy(() => import(/* chunkName: List */ '@/pages/List'));
+const Home = lazy(() => import(/* chunkName: Home */ '@/pages/Home'));
+const Detail = lazy(() => import(/* chunkName: Detail */ '@/pages/Detail'));
+const Index = lazy(() => import(/* chunkName: Index */ '@/pages/Index'));
+const Other = lazy(() => import(/* chunkName: Other */ '@/pages/Other'));
+const Other1 = lazy(() => import(/* chunkName: Other1 */ '@/pages/Other1'));
 const NoFound = lazy(
-  () => import('../components/NoFound' /* webpackChunkName: "NoFound" */),
+  () => import(/* chunkName: NoFound */ '../components/NoFound'),
 );
 export const TabBarList: White.RouteTabBar[] = [
   {

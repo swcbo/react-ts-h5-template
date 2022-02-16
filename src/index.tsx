@@ -1,19 +1,14 @@
-import 'lib-flexible';
-import { render } from 'react-dom';
-import App from './App';
 import '@/assets/css/common.less';
-import * as serviceWorker from './serviceWorker';
+import 'lib-flexible';
 import { StrictMode } from 'react';
+import { render } from 'react-dom';
 import { GlobalProvider } from 'rmox';
-
-document
-  .getElementsByTagName('body')[0]
-  .style.setProperty('--height-primary', `${window.innerHeight}px`);
-window.addEventListener('resize', () => {
-  document
-    .getElementsByTagName('body')[0]
-    .style.setProperty('--height-primary', `${window.innerHeight}px`);
-});
+import App from './App';
+import { setWindowHeight } from './utils';
+setWindowHeight();
+window.onresize = () => {
+  setWindowHeight();
+};
 render(
   <StrictMode>
     <GlobalProvider>
@@ -22,5 +17,3 @@ render(
   </StrictMode>,
   document.getElementById('root'),
 );
-
-serviceWorker.unregister();

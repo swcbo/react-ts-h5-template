@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-04 13:11:40
  * @LastEditors: 小白
- * @LastEditTime: 2021-10-24 15:36:36
+ * @LastEditTime: 2022-02-16 23:53:34
  */
 export const setAuth = (auth: string) => {
   window.localStorage.setItem('auth', auth);
@@ -59,4 +59,20 @@ export const treeToList = (list: any[], parents: string | string[]) => {
     }
   });
   return adtaList;
+};
+
+export const setWindowHeight = () => {
+  const windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+  if (typeof windowWidth !== 'number') {
+    if (document.compatMode === 'CSS1Compat') {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      // @ts-ignore
+      windowHeight = window.body.clientHeight;
+    }
+  }
+  document
+    .getElementsByTagName('body')[0]
+    .style.setProperty('--height-primary', `${windowHeight}px`);
 };
