@@ -1,0 +1,2 @@
+import{r as e}from"./react.85fe534d.js";import{j as r}from"./antd-mobile.f8be07c7.js";import{u as a}from"./index.3d6046bf.js";var t=e.exports.memo((()=>{const e=a();return r.exports.jsxDEV("div",{className:"tabbar_page",style:{backgroundColor:"blue"},onClick:()=>e("/other1"),children:"Search"},void 0,!1,{fileName:"/home/runner/work/react-ts-h5-template/react-ts-h5-template/src/pages/Search/index.tsx",lineNumber:14,columnNumber:5},globalThis)}));export{t as default};
+//# sourceMappingURL=index.f4500a7c.js.map
