@@ -1,9 +1,9 @@
+import history from '@/utils/history';
 import { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
-import { useNavigate, useLocation, matchPath } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router-dom';
 import routers from '../../routers';
 import styles from './index.module.less';
 const TabBarView: FC = () => {
-  const nav = useNavigate();
   const location = useLocation();
   const tabBars = useRef(routers.find((v) => v.tabBars)?.tabBars);
   const [state, setstate] = useState(
@@ -11,10 +11,11 @@ const TabBarView: FC = () => {
   );
   const OnTabClick = useCallback(
     (index, path) => {
+      if (state === index) return;
       setstate(index);
-      nav(path);
+      history.push(path);
     },
-    [nav],
+    [state],
   );
   useEffect(() => {
     setstate(

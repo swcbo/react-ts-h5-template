@@ -4,7 +4,7 @@
  * @Author: 小白
  * @Date: 2020-10-05 22:06:34
  * @LastEditors: 小白
- * @LastEditTime: 2022-02-16 22:41:41
+ * @LastEditTime: 2022-02-17 00:14:09
  */
 import { White } from '@/typings';
 import { lazy } from 'react';
@@ -27,21 +27,21 @@ export const TabBarList: White.RouteTabBar[] = [
     title: '首页',
   },
   {
-    path: 'detail',
+    path: '/detail',
     component: Detail,
     icon: 'white-tradingdata',
     sceneMode: 'scroll',
     title: '详情',
   },
   {
-    path: 'list',
+    path: '/list',
     component: List,
     icon: 'white-order',
     sceneMode: 'scroll',
     title: '统计',
   },
   {
-    path: 'search',
+    path: '/search',
     component: Search,
     icon: 'white-account',
     sceneMode: 'scroll',
@@ -56,16 +56,16 @@ const routes: White.RouteConfig[] = [
     tabBars: TabBarList,
   },
   {
-    path: 'other',
+    path: '/other',
     component: Other,
   },
   {
-    path: 'other1',
+    path: '/other1',
     sceneMode: 'bottom',
     component: Other1,
   },
   {
-    path: 'dcotorDetail',
+    path: '/dcotorDetail',
     component: Detail,
   },
   {

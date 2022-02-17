@@ -1,6 +1,8 @@
 import AnimatedSwitch from '@/components/AnimatedSwitch';
 import LoadingView from '@/components/LoadingView';
+import useTitle from '@/hooks/useTitle';
 import { White } from '@/typings';
+import { treeToList } from '@/utils';
 import { Suspense, useLayoutEffect, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import routes from './index';
@@ -17,6 +19,7 @@ const generateRoute = ({
   </Route>
 );
 let isStart = false;
+const routeList = treeToList(routes, ['routes', 'tabBars']);
 const handler = (e: any) => {
   e.stopPropagation();
   e.preventDefault();
@@ -29,6 +32,10 @@ const RouteRender = () => {
   useLayoutEffect(() => {
     document.removeEventListener('click', handler, true);
   }, []);
+  console.log(location.pathname, routeList);
+  useTitle(
+    routeList.find((v) => v.path === location.pathname)?.title || '首页',
+  );
   return (
     <AnimatedSwitch
       classNames={classNames}
