@@ -32,10 +32,7 @@ const RouteRender = () => {
   useLayoutEffect(() => {
     document.removeEventListener('click', handler, true);
   }, []);
-  console.log(location.pathname, routeList);
-  useTitle(
-    routeList.find((v) => v.path === location.pathname)?.title || '首页',
-  );
+  useTitle(routeList.find((v) => v.path === location.pathname)?.title);
   return (
     <AnimatedSwitch
       classNames={classNames}

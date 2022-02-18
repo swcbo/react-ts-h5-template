@@ -3,6 +3,7 @@
   "name": "react-ts-h5-template",
   "private": false,
   "license": "ISC",
+  "author": "swcbo",
   "scripts": {
     "dev": "vite --mode dev",
     "pre": "vite --mode pre",
