@@ -1,0 +1,2 @@
+import{u as s,j as e}from"./index-479ae369.js";import{r}from"./react-27b56536.js";import"./antd-mobile-0fa2eb01.js";const a=r.memo((()=>{const r=s();return e.jsxs("div",{className:"column_center fullPage",children:[e.jsx("img",{src:"/assets/404-c4d098e7.png",alt:""}),e.jsx("p",{children:"Sorry,您访问的页面丢了~"}),e.jsx("div",{className:"back_btn",onClick:()=>{r("/",{replace:!0})},children:"返回首页"})]})}));export{a as default};
+//# sourceMappingURL=index-f02b6d96.js.map
