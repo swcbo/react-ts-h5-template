@@ -6,15 +6,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2.1.0
       with:
-        node-version: ${{ matrix.node-version }}
+          version: 7.2.1
     - name: Install Packages
       run: pnpm install
     - name: Build page
