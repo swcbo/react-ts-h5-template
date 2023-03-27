@@ -1,0 +1,2 @@
+import{j as e,L as s}from"./index-93ab6171.js";import{r}from"./react-27b56536.js";import"./antd-mobile-0fa2eb01.js";const o=r.memo((()=>{const[o,t]=r.useState(1);return e.jsxs("div",{children:[e.jsx("div",{className:"bg-red-500 hover:bg-blue-400 mt-[10px] w-[100px]",onClick:()=>t((e=>e+1)),children:"home5434"}),e.jsx("div",{className:"bg-green-200 font-$30",children:o}),e.jsx(s,{})]})}));export{o as default};
+//# sourceMappingURL=index-919c534f.js.map

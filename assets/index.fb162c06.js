@@ -1,2 +1,0 @@
-import{r as e}from"./react.4d5b2efe.js";import{j as r}from"./antd-mobile.d4d91a75.js";import{u as t}from"./index.fcb35647.js";var o=e.exports.memo((()=>{const e=t();return r.exports.jsxDEV("div",{onClick:()=>{e(-1)},style:{backgroundColor:"red"},children:"32132131"},void 0,!1,{fileName:"/home/runner/work/react-ts-h5-template/react-ts-h5-template/src/pages/Other/index.tsx",lineNumber:14,columnNumber:5},void 0)}));export{o as default};
-//# sourceMappingURL=index.fb162c06.js.map
