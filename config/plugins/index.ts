@@ -1,7 +1,7 @@
 import legacy from '@vitejs/plugin-legacy';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import type { PluginOption } from 'vite';
-import viteCompression from 'vite-plugin-compression';
+import viteCompression from 'vite-plugin-compression2';
 
 import {
   VITE_APP_ANALYZE,
@@ -28,7 +28,7 @@ export const createVitePlugins = (viteEnv: string, isBuild: boolean) => {
     VITE_APP_COMPRESS_GZIP &&
       vitePlugins.push(
         viteCompression({
-          deleteOriginFile: VITE_APP_COMPRESS_GZIP_DELETE_FILE,
+          deleteOriginalAssets: VITE_APP_COMPRESS_GZIP_DELETE_FILE,
         }),
       );
   }

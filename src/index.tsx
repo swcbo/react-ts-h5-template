@@ -3,7 +3,7 @@ import 'lib-flexible';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import { GlobalProvider } from 'rmox';
-import App from './App';
+import App from '@/App';
 import { setWindowHeight } from './utils';
 setWindowHeight();
 window.onresize = () => {

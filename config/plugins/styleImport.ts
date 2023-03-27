@@ -1,6 +1,6 @@
-import styleImport from 'vite-plugin-style-import';
+import { createStyleImportPlugin } from 'vite-plugin-style-import';
 export default () => {
-  return styleImport({
+  return createStyleImportPlugin({
     libs: [
       {
         libraryName: 'antd-mobile',
