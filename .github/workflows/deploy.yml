@@ -16,9 +16,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install Packages
-      run: npm install
+      run: pnpm install
     - name: Build page
-      run: npm run build:prod
+      run: pnpm  build:prod
     - name: new 404.html
       run: cd ./build/ && cp index.html 404.html && cp ../CNAME CNAME && cd ..
     - name: Deploy to gh-pages

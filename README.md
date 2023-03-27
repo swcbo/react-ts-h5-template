@@ -22,37 +22,26 @@
 ## Project setup
 
 ```
-yarn install
+yarn install or pnpm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn dev
+yarn dev  or pnpm dev
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build:prod
+yarn build:prod or pnpm build:prod
 ```
 
 ### Lints and fixes files
 
 ```
-yarn lint
+yarn lint or pnpm lint
 ```
-
-## To-do List
-
-- [x] vite
-- [x] typescript
-- [x] react-route6
-- [x] postcss-px-to-viewport
-- [x] react-router(route add animotion)
-- [x] cdn
-- [x] antd-mobile5
-- [x] tailwindcss
 
 ## 项目目录
 

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { useNavigate } from 'react-router';
 import './index.less';
 import image from '@/assets/images/common/404.png';
+import { useNavigate } from 'react-router-dom';
 const NoFound = () => {
   const nav = useNavigate();
   return (
