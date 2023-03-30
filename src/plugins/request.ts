@@ -59,52 +59,69 @@ const baseRequest = (config: any): Promise<any> => {
   config = {
     ...config,
     headers: {
-      Authorization: `Beara ${getAuth()}`,
+      Authorization: `Bearer ${getAuth()}`,
     },
-    url: `${process.env.REACT_APP_HTTPBASEURL}${config.url}`,
+    url: `${process.env.VITE_HTTP_API}${config.url}`,
   };
   return axios.request(config);
 };
 
-export default {
-  get: (url: string, params?: object, config?: AxiosRequestConfig) => () => {
-    return baseRequest({
-      method: 'get',
-      params,
-      url,
-      ...config,
-    });
-  },
-  post: (url: string, data: object, config?: AxiosRequestConfig) => () => {
-    return baseRequest({
-      data,
-      method: 'post',
-      url,
-      ...config,
-    });
-  },
-  patch: (url: string, data: object, config?: AxiosRequestConfig) => () => {
-    return baseRequest({
-      data,
-      method: 'patch',
-      url,
-      ...config,
-    });
-  },
-  put: (url: string, data?: object, config?: AxiosRequestConfig) => () => {
-    return baseRequest({
-      data,
-      method: 'put',
-      url,
-      ...config,
-    });
-  },
-  delete: (url: string, data?: object, config?: AxiosRequestConfig) => () => {
-    return baseRequest({
-      data,
-      method: 'delete',
-      url,
-      ...config,
-    });
-  },
+export const get = (
+  url: string,
+  params?: object,
+  config?: AxiosRequestConfig,
+) =>
+  baseRequest({
+    method: 'get',
+    params,
+    url,
+    ...config,
+  });
+export const post = (
+  url: string,
+  data: object,
+  config?: AxiosRequestConfig,
+) => {
+  return baseRequest({
+    data,
+    method: 'post',
+    url,
+    ...config,
+  });
+};
+export const patch = (
+  url: string,
+  data: object,
+  config?: AxiosRequestConfig,
+) => {
+  return baseRequest({
+    data,
+    method: 'patch',
+    url,
+    ...config,
+  });
+};
+export const put = (
+  url: string,
+  data?: object,
+  config?: AxiosRequestConfig,
+) => {
+  return baseRequest({
+    data,
+    method: 'put',
+    url,
+    ...config,
+  });
+};
+export const remove = (
+  url: string,
+  data?: object,
+  config?: AxiosRequestConfig,
+) => {
+  return baseRequest({
+    data,
+    method: 'delete',
+    url,
+    ...config,
+  });
 };

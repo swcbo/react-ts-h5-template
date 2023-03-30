@@ -1,3 +1,3 @@
-import request from '../plugins/request';
+import { post } from '@/plugins/request';
 
-export const getList = () => request.post('transportation/route/list', {});
+export const getList = () => post('transportation/route/list', {});
